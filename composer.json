@@ -1,0 +1,19 @@
+{
+    "name": "proner/phppimaco",
+    "description": "Lib para geração de Etiquetas PIMACO",
+    "authors": [
+        {
+            "name": "Diogo Bemfica",
+            "email": "diogo.fragabemfica@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Proner\\PhpPimaco\\": "src/"
+        },
+        "files": [
+            "lib/fpdf/fpdf.php"
+        ]
+    }
+}

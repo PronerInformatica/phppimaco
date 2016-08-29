@@ -1,0 +1,22 @@
+{
+    "page": {
+        "orientation": "P",
+        "unit": "mm",
+        "size": {
+            "0": "215.9",
+            "1": "279.4"
+        },
+        "margin-top": "21.2",
+        "margin-left": "4",
+        "margin-right": "4"
+    },
+    "tag": {
+        "width" : "101.6",
+        "height" : "33.9",
+        "border" : "1",
+        "ln" : "",
+        "align" : "",
+        "fill" : "",
+        "link" : ""
+    }
+}

@@ -2,12 +2,15 @@
 
 namespace Proner\PhpPimaco;
 
-class Printer
+use mPDF;
+
+class Pimaco
 {
     public $template;
     private $config;
     private $file_template;
     private $path_template;
+    private $rows = array();
     private $tags = array();
 
     function __construct($template, $path_template = null)
@@ -20,6 +23,7 @@ class Printer
         $this->file_template = $template.".prn";
 
         $this->loadTemplates($this->path_template.$this->file_template);
+        $this->pdf = new mPDF('utf-8', $this->config['page']['size'],$this->config['page']['font-size'],null,$this->config['page']['margin-left'],$this->config['page']['margin-right'],$this->config['page']['margin-top']);
     }
 
     private function loadTemplates($template)
@@ -40,12 +44,26 @@ class Printer
             }
         }
 
+        //ROW
+        foreach($std->row as $k => $v){
+            if( is_string($v)){
+                $this->config['row'][$k] = $v;
+            }
+        }
+
         //TAG
         foreach($std->tag as $k => $v){
             if( is_string($v)){
                 $this->config['tag'][$k] = $v;
             }
         }
+    }
+
+    public function row()
+    {
+        return $this->rows[] = new Row($this->config['row']['width']);
+//        $html = "<table>";
+//        $this->pdf->WriteHTML("<table border='1' style='border-spacing: 0; width: {$this->config['tag']['width']}mm' cellpadding='0' cellpadding='0'><tr><td>aaaa</td><td>aaaa</td></tr></table>");
     }
 
     public function addTag($content)
@@ -55,17 +73,10 @@ class Printer
 
     public function render()
     {
-        $pdf = new \FPDF($this->config['page']['orientation'],$this->config['page']['unit'],$this->config['page']['size']);
-        $pdf->SetTopMargin($this->config['page']['margin-top']);
-        $pdf->SetLeftMargin($this->config['page']['margin-left']);
-        $pdf->SetRightMargin($this->config['page']['margin-right']);
-        $pdf->AddPage();
-
-        foreach($this->tags as $tag){
-            $pdf->SetFont($tag->getFamily(),$tag->getStyle(),$tag->getSize());
-            $pdf->Cell($this->config['tag']['width'],$this->config['tag']['height'],$tag->getContent(),$this->config['tag']['border']);
+        foreach( $this->rows as $row ){
+            $this->pdf->WriteHTML($row->getContent());
         }
-
-        $pdf->Output();
+//        $this->pdf->WriteHTML("Diogo");
+        $this->pdf->Output();
     }
 }

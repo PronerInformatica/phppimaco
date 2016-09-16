@@ -4,59 +4,61 @@ namespace Proner\PhpPimaco;
 class Tag
 {
     private $content;
-    private $family;
-    private $style;
-    private $size;
-
-    function __construct($content)
-    {
-        $this->setContent($content);
-        $this->setFamily('Arial');
-        $this->setStyle('');
-        $this->setSize(10);
-    }
-
-    public function getContent()
-    {
-        return $this->content;
-    }
+    private $width;
+    private $height;
 
     public function setContent($content)
     {
         $this->content = $content;
-        return $this;
     }
 
-    public function getFamily()
+    public function getWidth()
     {
-        return $this->family;
+        return $this->width;
     }
 
-    public function setFamily($family)
+    public function setWidth($width)
     {
-        $this->family = $family;
-        return $this;
+        $this->width = $width;
     }
 
-    public function getStyle()
+    public function getHeight()
     {
-        return $this->style;
+        return $this->height;
     }
 
-    public function setStyle($style)
+    public function setHeight($height)
     {
-        $this->style = $style;
-        return $this;
+        $this->height = $height;
     }
 
-    public function getSize()
+    public function p($content)
     {
-        return $this->size;
+        $p = new P($content);
+        $this->p[] = $p;
+        return $p;
     }
 
-    public function setSize($size)
+    private function render()
     {
-        $this->size = $size;
-        return $this;
+        foreach($this->p as $p){
+            $this->content .= $p->getContent();
+        }
+        unset($this->p);
+    }
+
+    public function getContent()
+    {
+        $this->render();
+        return $this->content;
+    }
+
+    public function toArray()
+    {
+        return [
+            'content' => $this->content,
+            'width' => $this->width,
+            'height' => $this->height
+        ];
     }
 }

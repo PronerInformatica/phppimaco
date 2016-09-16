@@ -2,6 +2,7 @@
 
 namespace Proner\PhpPimaco;
 
+use DoctrineTest\InstantiatorTestAsset\ArrayObjectAsset;
 use mPDF;
 
 class Pimaco
@@ -10,11 +11,12 @@ class Pimaco
     private $config;
     private $file_template;
     private $path_template;
-    private $rows = array();
-    private $tags = array();
+    private $tags;
 
     function __construct($template, $path_template = null)
     {
+        $this->tags = new \ArrayObject();
+
         if( empty($path_template) ){
             $this->path_template = dirname(__DIR__) . "/templates/";
         }else{
@@ -24,6 +26,7 @@ class Pimaco
 
         $this->loadTemplates($this->path_template.$this->file_template);
         $this->pdf = new mPDF('utf-8', $this->config['page']['size'],$this->config['page']['font-size'],null,$this->config['page']['margin-left'],$this->config['page']['margin-right'],$this->config['page']['margin-top']);
+        $this->pdf->SetColumns($this->config['page']['columns'],'L',1);
     }
 
     private function loadTemplates($template)
@@ -44,13 +47,6 @@ class Pimaco
             }
         }
 
-        //ROW
-        foreach($std->row as $k => $v){
-            if( is_string($v)){
-                $this->config['row'][$k] = $v;
-            }
-        }
-
         //TAG
         foreach($std->tag as $k => $v){
             if( is_string($v)){
@@ -59,24 +55,26 @@ class Pimaco
         }
     }
 
-    public function row()
+    public function addTag(Tag $tag)
     {
-        return $this->rows[] = new Row($this->config['row']['width']);
-//        $html = "<table>";
-//        $this->pdf->WriteHTML("<table border='1' style='border-spacing: 0; width: {$this->config['tag']['width']}mm' cellpadding='0' cellpadding='0'><tr><td>aaaa</td><td>aaaa</td></tr></table>");
+        $tag->setWidth($this->config['tag']['width']);
+        $tag->setHeight($this->config['tag']['height']);
+        $content = $tag->getContent();
+        $tag->setContent("<div style='width:{$tag->getWidth()}mm;height: {$tag->getHeight()}mm; border: 1px solid #000;'>{$content}</div>");
+        return $this->tags->append($tag);
     }
 
-    public function addTag($content)
+    public function getTags()
     {
-        return $this->tags[] = new Tag($content);
+        return $this->tags->getArrayCopy();
     }
 
     public function render()
     {
-        foreach( $this->rows as $row ){
-            $this->pdf->WriteHTML($row->getContent());
+        $tags = $this->getTags();
+        foreach( $tags as $tag ){
+            $this->pdf->WriteHTML($tag->getContent());
         }
-//        $this->pdf->WriteHTML("Diogo");
         $this->pdf->Output();
     }
 }

@@ -7,61 +7,83 @@ use mPDF;
 
 class Pimaco
 {
-    public $template;
-    private $config;
-    private $file_template;
+
     private $path_template;
+    private $file_template;
+    private $content;
+
+    private $width;
+    private $height;
+    private $fontSize;
+    private $orientation;
+    private $columns;
+    private $unit;
+    private $marginTop;
+    private $marginLeft;
+    private $marginRight;
+    private $marginBottom;
+    private $marginHeader;
+    private $marginFooter;
+
     private $tags;
 
     function __construct($template, $path_template = null)
     {
+
+        $this->path_template = dirname(__DIR__) . "/templates/";
+        if( !empty($path_template) ){
+            $this->path_template = $path_template;
+        }
+        $this->file_template = $template.".json";
+        $this->loadConfig();
+
         $this->tags = new \ArrayObject();
 
-        if( empty($path_template) ){
-            $this->path_template = dirname(__DIR__) . "/templates/";
-        }else{
-            $this->path_template = dirname(__DIR__) . "/" . $path_template;
-        }
-        $this->file_template = $template.".prn";
+        $this->pdf = new mPDF(
+            'utf-8',
+            array($this->width,$this->height),
+            $this->fontSize,
+            null,
+            $this->marginLeft,
+            $this->marginRight,
+            $this->marginTop
+        );
 
-        $this->loadTemplates($this->path_template.$this->file_template);
-        $this->pdf = new mPDF('utf-8', $this->config['page']['size'],$this->config['page']['font-size'],null,$this->config['page']['margin-left'],$this->config['page']['margin-right'],$this->config['page']['margin-top']);
-        $this->pdf->SetColumns($this->config['page']['columns'],'L',1);
+//        $this->pdf->SetColumns($this->columns,'L',1);
     }
 
-    private function loadTemplates($template)
+    private function loadConfig()
     {
-        $tconfig = str_replace(".prn",".json",$template);
-        $json = file_get_contents($tconfig);
+        if( !file_exists($this->path_template . $this->file_template) ){
+            throw new \Exception("template not found");
+        }
+        $json = file_get_contents($this->path_template . $this->file_template);
         $std = json_decode($json);
 
-        //PAGE
-        foreach($std->page as $k => $v){
-            if( is_string($v)){
-                $this->config['page'][$k] = $v;
-            }
-            if( $k == 'size' ){
-                foreach($std->page->size as $k2 => $v2){
-                    $this->config['page']['size'][] = $v2;
-                }
-            }
-        }
-
-        //TAG
-        foreach($std->tag as $k => $v){
-            if( is_string($v)){
-                $this->config['tag'][$k] = $v;
-            }
-        }
+        $this->width = $std->page->size->{'0'};
+        $this->height = $std->page->size->{'1'};
+        $this->fontSize = $std->page->{'font-size'};
+        $this->orientation = $std->page->orientation;
+        $this->columns = $std->page->columns;
+        $this->unit = $std->page->unit;
+        $this->marginTop = $std->page->{'margin-top'};
+        $this->marginLeft = $std->page->{'margin-left'};
+        $this->marginRight = $std->page->{'margin-right'};
+        $this->marginBottom = $std->page->{'margin-bottom'};
+        $this->marginHeader = $std->page->{'margin-header'};
+        $this->marginFooter = $std->page->{'margin-footer'};
     }
 
     public function addTag(Tag $tag)
     {
-        $tag->setWidth($this->config['tag']['width']);
-        $tag->setHeight($this->config['tag']['height']);
-        $content = $tag->getContent();
-        $tag->setContent("<div style='width:{$tag->getWidth()}mm;height: {$tag->getHeight()}mm; border: 1px solid #000;'>{$content}</div>");
-        return $this->tags->append($tag);
+        $tag->loadConfig($this->file_template, $this->path_template);
+        return $this->tags->append($tag->render());
+    }
+
+    private function addTagBlank()
+    {
+        $tag = new Tag('');
+        $this->addTag($tag);
     }
 
     public function getTags()
@@ -71,10 +93,36 @@ class Pimaco
 
     public function render()
     {
-        $tags = $this->getTags();
-        foreach( $tags as $tag ){
-            $this->pdf->WriteHTML($tag->getContent());
+        $this->content = "";
+
+        $rows = ceil($this->tags->count()/$this->columns);
+        $blank = $this->columns*$rows-$this->tags->count();
+        for( $i = 0; $i < $blank; $i++ ){
+            $this->addTagBlank();
         }
+
+        $tags = $this->getTags();
+
+        $col = 0;
+        $render = "<table cellspacing='0' cellpadding='0'>";
+        for($row = 1; $row <= $rows; $row++){
+            $render .= "<tr>";
+            for($i = 1; $i <= $this->columns && $this->tags->count() > 0; $i++){
+                $render .= $tags[$col];
+                $col++;
+                if( $col > $this->tags->count() ){
+                    break 2;
+                }
+            }
+            $render .= "</tr>";
+        }
+        $render .= "</table>";
+        return $render;
+    }
+
+    public function output()
+    {
+        $this->pdf->WriteHTML($this->render());
         $this->pdf->Output();
     }
 }

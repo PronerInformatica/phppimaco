@@ -37,7 +37,13 @@ class P
         return $this;
     }
 
-    private function render()
+    public function b()
+    {
+        $this->bold = true;
+        return $this;
+    }
+
+    public function render()
     {
         $tag = "span";
         if( $this->margin !== null ){
@@ -55,18 +61,7 @@ class P
         if( $this->bold === true ){
             $style[] = "font-weight: bold";
         }
-        $this->content = "<{$tag} style='".implode(";",$style).";'>{$this->content}</{$tag}>";
-    }
-
-    public function b()
-    {
-        $this->bold = true;
-        return $this;
-    }
-
-    public function getContent()
-    {
-        $this->render();
-        return $this->content;
+        $content = "<{$tag} style='".implode(";",$style).";'>{$this->content}</{$tag}>";
+        return $content;
     }
 }

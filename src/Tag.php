@@ -4,52 +4,93 @@ namespace Proner\PhpPimaco;
 class Tag
 {
     private $content;
+
     private $width;
     private $height;
+    private $border;
+    private $ln;
+    private $align;
+    private $fill;
+    private $link;
+
+    function __construct($content = null)
+    {
+        $this->p = new \ArrayObject();
+
+        if( $content !== null ){
+            $p = new P($content);
+            $this->p->append($p);
+        }
+    }
+
+    public function loadConfig($template, $path)
+    {
+        $json = file_get_contents($path . $template);
+        $std = json_decode($json);
+
+        $this->width = $std->tag->width;
+        $this->height = $std->tag->height;
+        $this->border = $std->tag->border;
+        $this->ln = $std->tag->ln;
+        $this->align = $std->tag->align;
+        $this->fill = $std->tag->fill;
+        $this->link = $std->tag->link;
+    }
 
     public function setContent($content)
     {
         $this->content = $content;
     }
 
-    public function getWidth()
+    public function addP(P $p)
     {
-        return $this->width;
-    }
-
-    public function setWidth($width)
-    {
-        $this->width = $width;
-    }
-
-    public function getHeight()
-    {
-        return $this->height;
-    }
-
-    public function setHeight($height)
-    {
-        $this->height = $height;
+        $this->p->append($p);
+        return $p;
     }
 
     public function p($content)
     {
         $p = new P($content);
-        $this->p[] = $p;
+        $this->p->append($p);
         return $p;
     }
 
-    private function render()
+    private function getP()
     {
-        foreach($this->p as $p){
-            $this->content .= $p->getContent();
-        }
-        unset($this->p);
+        return $this->p->getArrayCopy();
     }
 
-    public function getContent()
+    public function render()
     {
-        $this->render();
+        $this->content = "";
+
+        if( !empty($this->width) ){
+            $style[] = "width: {$this->width}mm";
+        }
+        if( !empty($this->height) ){
+            $style[] = "height: {$this->height}mm";
+        }
+        if( !empty($this->border) ){
+            $style[] = "border: {$this->border}mm solid black";
+        }
+        if( !empty($this->ln) ){
+            $style[] = "ln: {$this->ln}mm";
+        }
+        if( !empty($this->align) ){
+            $style[] = "text-align: {$this->align}";
+        }
+
+        $ps = $this->getP();
+        foreach($ps as $p){
+            $this->content .= $p->render();
+        }
+
+        if( !empty($style) ){
+            $this->content = "<td style='".implode(";",$style).";'>{$this->content}</td>";
+        }else{
+            $this->content = "<td>{$this->content}</td>";
+        }
+
         return $this->content;
     }
 

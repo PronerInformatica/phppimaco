@@ -91,6 +91,13 @@ class Pimaco
         return $this->tags->getArrayCopy();
     }
 
+    public function jump($jump)
+    {
+        for( $i = 0; $i < $jump; $i++ ){
+            $this->addTagBlank();
+        }
+    }
+
     public function render()
     {
         $this->content = "";

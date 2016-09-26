@@ -37,6 +37,8 @@ $tag9->p("TAG 9");
 
 $pimaco = new Pimaco('6182');
 $pimaco->addTag($tag);
+dd($pimaco->getTags());
+exit();
 //$pimaco->addTag($tag2);
 //$pimaco->addTag($tag3);
 //$pimaco->addTag($tag4);

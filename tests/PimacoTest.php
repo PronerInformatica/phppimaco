@@ -19,7 +19,7 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $pimaco->addTag($tag);
         $pimaco->addTag($tag2);
 
-        $render = "<table cellspacing='0' cellpadding='0'><tr><td style='width: 10mm;height: 10mm;'><span style='margin: 0mm;padding: 0mm;float: left;'>teste</span></td><td style='width: 10mm;height: 10mm;'><span style='margin: 0mm;padding: 0mm;float: left;'>teste2</span></td></tr></table>";
+        $render = "<table cellspacing='0' cellpadding='0'><tr><td style='width: 10mm;height: 10mm;vertical-align: top;'><span style='margin: 0mm;padding: 0mm;float: left;'>teste</span></td><td style='width: 10mm;height: 10mm;vertical-align: top;'><span style='margin: 0mm;padding: 0mm;float: left;'>teste2</span></td></tr></table>";
         $this->assertEquals($render,$pimaco->render());
     }
 
@@ -33,7 +33,7 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $pimaco = new Pimaco($template,$path);
         $pimaco->addTag($tag);
 
-        $render = "<table cellspacing='0' cellpadding='0'><tr><td style='width: 10mm;height: 10mm;'><span style='margin: 0mm;padding: 0mm;float: left;'>teste</span></td><td style='width: 10mm;height: 10mm;'><span style='margin: 0mm;padding: 0mm;float: left;'></span></td></tr></table>";
+        $render = "<table cellspacing='0' cellpadding='0'><tr><td style='width: 10mm;height: 10mm;vertical-align: top;'><span style='margin: 0mm;padding: 0mm;float: left;'>teste</span></td><td style='width: 10mm;height: 10mm;vertical-align: top;'><span style='margin: 0mm;padding: 0mm;float: left;'></span></td></tr></table>";
         $this->assertEquals($render,$pimaco->render());
     }
 }

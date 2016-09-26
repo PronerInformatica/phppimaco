@@ -10,6 +10,7 @@ class Tag
     private $border;
     private $ln;
     private $align;
+    private $valign = 'top';
     private $fill;
     private $link;
 
@@ -78,6 +79,9 @@ class Tag
         }
         if( !empty($this->align) ){
             $style[] = "text-align: {$this->align}";
+        }
+        if( !empty($this->valign) ){
+            $style[] = "vertical-align: {$this->valign}";
         }
 
         $ps = $this->getP();

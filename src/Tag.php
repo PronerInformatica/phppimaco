@@ -9,6 +9,8 @@ class Tag
     private $height;
     private $border;
     private $ln;
+    private $size;
+    private $padding;
     private $align;
     private $valign = 'top';
     private $fill;
@@ -41,6 +43,18 @@ class Tag
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+        return $this;
+    }
+
+    public function setPadding($padding)
+    {
+        $this->padding = $padding;
+        return $this;
     }
 
     public function addP(P $p)
@@ -77,6 +91,12 @@ class Tag
         if( !empty($this->ln) ){
             $style[] = "ln: {$this->ln}mm";
         }
+        if( !empty($this->padding) ){
+            $style[] = "padding: {$this->padding}";
+        }
+        if( !empty($this->size) ){
+            $style[] = "font-size: {$this->size}";
+        }
         if( !empty($this->align) ){
             $style[] = "text-align: {$this->align}";
         }
@@ -96,14 +116,5 @@ class Tag
         }
 
         return $this->content;
-    }
-
-    public function toArray()
-    {
-        return [
-            'content' => $this->content,
-            'width' => $this->width,
-            'height' => $this->height
-        ];
     }
 }

@@ -5,15 +5,9 @@ use Proner\PhpPimaco\Tag;
 require_once "../vendor/autoload.php";
 
 $tag = new Tag();
-$tag->p("TAG 1 dfgd fgdf dfg dfgd fg dfg dfg dfg dfg dfg dfg dfg dfg dfg dfg dfg dfgd fg dfg dfgd fgfd")->br();
-$tag->p("TAG 1")->br();
-$tag->p("TAG 1")->br();
-$tag->p("TAG 1")->br();
-$tag->p("TAG 1")->br();
-$tag->p("TAG 1")->br();
-$tag->p("TAG 1")->br();
-$tag->p("TAG 1")->br();
-$tag->p("TAG 1")->br();
+$tag->setPadding(10);
+$tag->p("TAG 1");
+$tag->p("TAG 1.1")->align('right');
 
 $tag2 = new Tag();
 $tag2->p("TAG 2");
@@ -43,15 +37,15 @@ $tag9->p("TAG 9");
 
 $pimaco = new Pimaco('6182');
 $pimaco->addTag($tag);
-$pimaco->addTag($tag2);
-$pimaco->addTag($tag3);
-$pimaco->addTag($tag4);
-$pimaco->addTag($tag5);
-$pimaco->addTag($tag6);
-$pimaco->addTag($tag7);
-$pimaco->addTag($tag8);
-$pimaco->addTag($tag9);
-//dd($pimaco);
+//$pimaco->addTag($tag2);
+//$pimaco->addTag($tag3);
+//$pimaco->addTag($tag4);
+//$pimaco->addTag($tag5);
+//$pimaco->addTag($tag6);
+//$pimaco->addTag($tag7);
+//$pimaco->addTag($tag8);
+//$pimaco->addTag($tag9);
+//dd($pimaco->render());
 $pimaco->output();
 exit();
 

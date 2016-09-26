@@ -31,6 +31,12 @@ class P
         return $this;
     }
 
+    public function setPadding($padding)
+    {
+        $this->padding = $padding;
+        return $this;
+    }
+
     public function br()
     {
         $this->content .= "<br>";

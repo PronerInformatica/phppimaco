@@ -6,7 +6,6 @@ class P
     private $content;
     private $margin;
     private $padding;
-    private $float;
     private $size;
     private $bold;
 
@@ -15,7 +14,6 @@ class P
         $this->content = $content;
         $this->margin = 0;
         $this->padding = 0;
-        $this->float = "left";
         $this->bold = false;
     }
 
@@ -57,9 +55,6 @@ class P
         }
         if( $this->padding !== null ){
             $style[] = "padding: {$this->padding}mm";
-        }
-        if( $this->float !== null ){
-            $style[] = "float: {$this->float}";
         }
         if( $this->size !== null ){
             $style[] = "font-size: {$this->size}mm";

@@ -4,45 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b5c2658fdf15e478319a7364d6a82bc4",
-    "content-hash": "e04f71c05dde7335ca64e99a9bdaebd1",
+    "hash": "d729162f1029fff841c5a7c8981c2975",
+    "content-hash": "5c65dbd75f7e6593e55f1e9aba66c969",
     "packages": [
-        {
-            "name": "larapack/dd",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/larapack/dd.git",
-                "reference": "564da1a427b5559b5286138e180d80ed26558e85"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/larapack/dd/zipball/564da1a427b5559b5286138e180d80ed26558e85",
-                "reference": "564da1a427b5559b5286138e180d80ed26558e85",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/var-dumper": "*"
-            },
-            "type": "package",
-            "autoload": {
-                "files": [
-                    "src/helper.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mark Topper",
-                    "email": "hi@webman.io"
-                }
-            ],
-            "description": "`dd` is a helper method in Laravel. This package will add the `dd` to your application.",
-            "time": "2015-06-10 11:33:45"
-        },
         {
             "name": "mpdf/mpdf",
             "version": "v6.1.2",
@@ -142,128 +106,6 @@
                 "pdf"
             ],
             "time": "2015-11-30 10:53:14"
-        },
-        {
-            "name": "symfony/polyfill-mbstring",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "dff51f72b0706335131b00a7f49606168c582594"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
-                "reference": "dff51f72b0706335131b00a7f49606168c582594",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "ext-mbstring": "For best performance"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill for the Mbstring extension",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "mbstring",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2016-05-18 14:26:46"
-        },
-        {
-            "name": "symfony/var-dumper",
-            "version": "v3.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "62ee73706c421654a4c840028954510277f7dfc8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/62ee73706c421654a4c840028954510277f7dfc8",
-                "reference": "62ee73706c421654a4c840028954510277f7dfc8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "twig/twig": "~1.20|~2.0"
-            },
-            "suggest": {
-                "ext-symfony_debug": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "Resources/functions/dump.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Component\\VarDumper\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony mechanism for exploring and dumping PHP variables",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "debug",
-                "dump"
-            ],
-            "time": "2016-08-31 09:05:42"
         }
     ],
     "packages-dev": [
@@ -322,17 +164,53 @@
             "time": "2015-06-14 21:17:01"
         },
         {
-            "name": "myclabs/deep-copy",
-            "version": "1.5.3",
+            "name": "larapack/dd",
+            "version": "1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991"
+                "url": "https://github.com/larapack/dd.git",
+                "reference": "564da1a427b5559b5286138e180d80ed26558e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/94e5ca3e90aa5b34663780393e10914f7438f991",
-                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991",
+                "url": "https://api.github.com/repos/larapack/dd/zipball/564da1a427b5559b5286138e180d80ed26558e85",
+                "reference": "564da1a427b5559b5286138e180d80ed26558e85",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/var-dumper": "*"
+            },
+            "type": "package",
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Topper",
+                    "email": "hi@webman.io"
+                }
+            ],
+            "description": "`dd` is a helper method in Laravel. This package will add the `dd` to your application.",
+            "time": "2015-06-10 11:33:45"
+        },
+        {
+            "name": "myclabs/deep-copy",
+            "version": "1.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/myclabs/DeepCopy.git",
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
                 "shasum": ""
             },
             "require": {
@@ -361,7 +239,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-07 15:34:10"
+            "time": "2016-09-16 13:37:59"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -817,24 +695,24 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.5.4",
+            "version": "5.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3e6e88e56c912133de6e99b87728cca7ed70c5f5"
+                "reference": "a57126dc681b08289fef6ac96a48e30656f84350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3e6e88e56c912133de6e99b87728cca7ed70c5f5",
-                "reference": "3e6e88e56c912133de6e99b87728cca7ed70c5f5",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a57126dc681b08289fef6ac96a48e30656f84350",
+                "reference": "a57126dc681b08289fef6ac96a48e30656f84350",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-json": "*",
-                "ext-pcre": "*",
-                "ext-reflection": "*",
-                "ext-spl": "*",
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
+                "ext-xml": "*",
                 "myclabs/deep-copy": "~1.3",
                 "php": "^5.6 || ^7.0",
                 "phpspec/prophecy": "^1.3.1",
@@ -856,7 +734,12 @@
             "conflict": {
                 "phpdocumentor/reflection-docblock": "3.0.2"
             },
+            "require-dev": {
+                "ext-pdo": "*"
+            },
             "suggest": {
+                "ext-tidy": "*",
+                "ext-xdebug": "*",
                 "phpunit/php-invoker": "~1.1"
             },
             "bin": [
@@ -891,7 +774,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-26 07:11:44"
+            "time": "2016-09-21 14:40:13"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1464,6 +1347,128 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-02-04 12:56:52"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-05-18 14:26:46"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "62ee73706c421654a4c840028954510277f7dfc8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/62ee73706c421654a4c840028954510277f7dfc8",
+                "reference": "62ee73706c421654a4c840028954510277f7dfc8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "twig/twig": "~1.20|~2.0"
+            },
+            "suggest": {
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2016-08-31 09:05:42"
         },
         {
             "name": "symfony/yaml",

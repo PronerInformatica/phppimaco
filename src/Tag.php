@@ -12,9 +12,6 @@ class Tag
     private $size;
     private $padding;
     private $align;
-    private $valign = 'top';
-    private $fill;
-    private $link;
 
     function __construct($content = null)
     {
@@ -36,8 +33,6 @@ class Tag
         $this->border = $std->tag->border;
         $this->ln = $std->tag->ln;
         $this->align = $std->tag->align;
-        $this->fill = $std->tag->fill;
-        $this->link = $std->tag->link;
     }
 
     public function setContent($content)
@@ -75,10 +70,13 @@ class Tag
         return $this->p->getArrayCopy();
     }
 
-    public function render()
+    public function render($side = null)
     {
         $this->content = "";
 
+        if( !empty($side) ){
+            $style[] = "float: {$side}";
+        }
         if( !empty($this->width) ){
             $style[] = "width: {$this->width}mm";
         }
@@ -88,20 +86,11 @@ class Tag
         if( !empty($this->border) ){
             $style[] = "border: {$this->border}mm solid black";
         }
-        if( !empty($this->ln) ){
-            $style[] = "ln: {$this->ln}mm";
-        }
         if( !empty($this->padding) ){
             $style[] = "padding: {$this->padding}";
         }
         if( !empty($this->size) ){
             $style[] = "font-size: {$this->size}";
-        }
-        if( !empty($this->align) ){
-            $style[] = "text-align: {$this->align}";
-        }
-        if( !empty($this->valign) ){
-            $style[] = "vertical-align: {$this->valign}";
         }
 
         $ps = $this->getP();
@@ -110,9 +99,9 @@ class Tag
         }
 
         if( !empty($style) ){
-            $this->content = "<td style='".implode(";",$style).";'>{$this->content}</td>";
+            $this->content = "<div style='".implode(";",$style).";'>{$this->content}</div>";
         }else{
-            $this->content = "<td>{$this->content}</td>";
+            $this->content = "<div>{$this->content}</div>";
         }
 
         return $this->content;

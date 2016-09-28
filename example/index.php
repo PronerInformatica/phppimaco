@@ -48,21 +48,22 @@ $tag14->p("TAG 14");
 
 
 $pimaco = new Pimaco('6182');
-$pimaco->jump(2);
 $pimaco->addTag($tag);
+$html = $pimaco->render();
+dd($html);
 $pimaco->addTag($tag2);
 $pimaco->addTag($tag3);
 $pimaco->addTag($tag4);
-//$pimaco->addTag($tag5);
-//$pimaco->addTag($tag6);
-//$pimaco->addTag($tag7);
-//$pimaco->addTag($tag8);
-//$pimaco->addTag($tag9);
-//$pimaco->addTag($tag10);
-//$pimaco->addTag($tag11);
-//$pimaco->addTag($tag12);
-//$pimaco->addTag($tag13);
-//$pimaco->addTag($tag14);
+$pimaco->addTag($tag5);
+$pimaco->addTag($tag6);
+$pimaco->addTag($tag7);
+$pimaco->addTag($tag8);
+$pimaco->addTag($tag9);
+$pimaco->addTag($tag10);
+$pimaco->addTag($tag11);
+$pimaco->addTag($tag12);
+$pimaco->addTag($tag13);
+$pimaco->addTag($tag14);
 $pimaco->output();
 exit();
 

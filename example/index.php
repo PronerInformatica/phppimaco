@@ -5,9 +5,9 @@ use Proner\PhpPimaco\Tag;
 require_once "../vendor/autoload.php";
 
 $tag = new Tag();
-$tag->setPadding('4');
-$tag->setSize('2');
-$tag->p("TAG 1");
+$tag->p("texto");
+$html = $tag->render();
+dd($html);
 
 $tag2 = new Tag();
 $tag2->p("TAG 2");

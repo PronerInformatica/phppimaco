@@ -35,11 +35,6 @@ class Tag
         $this->align = $std->tag->align;
     }
 
-    public function setContent($content)
-    {
-        $this->content = $content;
-    }
-
     public function setSize($size)
     {
         $this->size = $size;

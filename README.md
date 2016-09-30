@@ -4,7 +4,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/proner/phppimaco/v/unstable)](https://packagist.org/packages/proner/phppimaco)
 [![Total Downloads](https://poser.pugx.org/proner/phppimaco/downloads)](https://packagist.org/packages/proner/phppimaco)
 
-O PHP PIMACO é um pacote para geração de etiquetas que tem o intuito de auxiliar a montagem de PDFs com as tuas etiquetas devidamente formatadas.
+O PHP PIMACO é um pacote para geração de etiquetas usando a biblioteca <a href="https://github.com/mpdf/mpdf" target="_blank">MPDF</a> para auxiliar a montagem de PDFs com as tuas etiquetas devidamente formatadas e prontas para impressão.
 
 ## Instalação
 

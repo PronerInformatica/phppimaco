@@ -8,7 +8,7 @@
             "0": "215.9",
             "1": "279.4"
         },
-        "margin-top": "21.2",
+        "margin-top": "21.5",
         "margin-left": "4.0",
         "margin-right": "4.0",
         "margin-bottom": "21.2",
@@ -21,7 +21,6 @@
         "border" : "0.1",
         "ln" : "",
         "align" : "",
-        "fill" : "",
-        "link" : ""
+        "padding": "2"
     }
 }

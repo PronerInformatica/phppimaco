@@ -33,6 +33,7 @@ class Tag
         $this->border = $std->tag->border;
         $this->ln = $std->tag->ln;
         $this->align = $std->tag->align;
+        $this->padding = $std->tag->padding;
     }
 
     public function setContent($content)
@@ -86,9 +87,9 @@ class Tag
         if( !empty($this->border) ){
             $style[] = "border: {$this->border}mm solid black";
         }
-        if( !empty($this->padding) ){
-            $style[] = "padding: {$this->padding}";
-        }
+//        if( !empty($this->padding) ){
+//            $style[] = "padding: {$this->padding}";
+//        }
         if( !empty($this->size) ){
             $style[] = "font-size: {$this->size}";
         }
@@ -99,9 +100,9 @@ class Tag
         }
 
         if( !empty($style) ){
-            $this->content = "<div style='".implode(";",$style).";'>{$this->content}</div>";
+            $this->content = "<div style='".implode(";",$style).";'><div style='padding: {$this->padding}mm;'>{$this->content}</div></div>";
         }else{
-            $this->content = "<div>{$this->content}</div>";
+            $this->content = "<div><div style='padding: {$this->padding}mm;'>{$this->content}</div></div>";
         }
 
         return $this->content;

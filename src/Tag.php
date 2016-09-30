@@ -10,7 +10,7 @@ class Tag
     private $border;
     private $ln;
     private $size;
-    private $padding;
+    private $padding = 0;
     private $align;
 
     function __construct($content = null)
@@ -33,7 +33,6 @@ class Tag
         $this->border = $std->tag->border;
         $this->ln = $std->tag->ln;
         $this->align = $std->tag->align;
-        $this->padding = $std->tag->padding;
     }
 
     public function setContent($content)
@@ -87,9 +86,6 @@ class Tag
         if( !empty($this->border) ){
             $style[] = "border: {$this->border}mm solid black";
         }
-//        if( !empty($this->padding) ){
-//            $style[] = "padding: {$this->padding}";
-//        }
         if( !empty($this->size) ){
             $style[] = "font-size: {$this->size}";
         }

@@ -96,7 +96,7 @@ class Tag
             $style[] = "border: {$this->border}mm solid black";
         }
         if( !empty($this->size) ){
-            $style[] = "font-size: {$this->size}";
+            $style[] = "font-size: {$this->size}mm";
         }
 
         $ps = $this->getP();

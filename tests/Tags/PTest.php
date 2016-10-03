@@ -9,19 +9,19 @@ class PTest extends \PHPUnit_Framework_TestCase
     {
         $p = new P('teste');
 
-        $render = "<span style='margin: 0mm;padding: 0mm;'>teste</span>";
+        $render = "<span>teste</span>";
         $this->assertEquals($render,$p->render());
 
         $p->b();
-        $render = "<span style='margin: 0mm;padding: 0mm;font-weight: bold;'>teste</span>";
+        $render = "<span style='font-weight: bold;'>teste</span>";
         $this->assertEquals($render,$p->render());
 
         $p->setSize(10);
-        $render = "<span style='margin: 0mm;padding: 0mm;font-size: 10mm;font-weight: bold;'>teste</span>";
+        $render = "<span style='font-size: 10mm;font-weight: bold;'>teste</span>";
         $this->assertEquals($render,$p->render());
 
         $p->br();
-        $render = "<span style='margin: 0mm;padding: 0mm;font-size: 10mm;font-weight: bold;'>teste<br></span>";
+        $render = "<span style='font-size: 10mm;font-weight: bold;'>teste<br></span>";
         $this->assertEquals($render,$p->render());
     }
 }

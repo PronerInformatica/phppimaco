@@ -19,6 +19,15 @@ ou adicione isso ao require do seu composer.json
 }
 ```
 
+## Templates Implementados
+* 6082
+* 6182
+* 6282
+* 62582
+
+## Templates Testados
+* 6182
+
 ## Documentação
 
 Acesse na nossa Wiki para ter acesso a documentação <a href="https://github.com/PronerInformatica/phppimaco/wiki" target="_blank">Wiki</a>

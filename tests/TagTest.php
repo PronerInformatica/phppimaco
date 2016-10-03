@@ -14,11 +14,11 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $tag = new Tag('teste');
         $tag->loadConfig($template, $path);
 
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
 
         $tag->setBorder(0.1);
-        $render = "<div style='width: 10mm;height: 10mm;border: 0.1mm solid black;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;border: 0.1mm solid black;'><div style='padding: 0mm;'><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
     }
 
@@ -30,11 +30,11 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $tag = new Tag('teste');
         $tag->loadConfig($template, $path);
 
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
 
         $tag->setPadding(4);
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 4mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 4mm;'><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
     }
 
@@ -46,7 +46,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $tag = new Tag('teste');
         $tag->loadConfig($template, $path);
 
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
     }
 
@@ -59,15 +59,15 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $tag->loadConfig($template, $path);
 
         $tag->p('teste');
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
 
         $tag->p('teste2');
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span><span style='margin: 0mm;padding: 0mm;'>teste2</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span><span>teste2</span></div></div>";
         $this->assertEquals($render,$tag->render());
 
         $tag->p('teste3')->b();
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span><span style='margin: 0mm;padding: 0mm;'>teste2</span><span style='margin: 0mm;padding: 0mm;font-weight: bold;'>teste3</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span><span>teste2</span><span style='font-weight: bold;'>teste3</span></div></div>";
         $this->assertEquals($render,$tag->render());
     }
 
@@ -81,12 +81,12 @@ class TagTest extends \PHPUnit_Framework_TestCase
 
         $p = new P('teste');
         $tag->addP($p);
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
 
         $p = new P('teste3');
         $tag->addP($p)->b();
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span><span style='margin: 0mm;padding: 0mm;font-weight: bold;'>teste3</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span><span style='font-weight: bold;'>teste3</span></div></div>";
         $this->assertEquals($render,$tag->render());
     }
 }

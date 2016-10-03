@@ -10,7 +10,7 @@ class Tag
     private $border;
     private $ln;
     private $size;
-    private $padding = 0;
+    private $padding;
     private $align;
 
     function __construct($content = null)
@@ -33,6 +33,10 @@ class Tag
 
         if( empty($this->border) ){
             $this->border = $std->tag->border;
+        }
+
+        if( empty($this->padding) ){
+            $this->padding = 0;
         }
 
         $this->ln = $std->tag->ln;

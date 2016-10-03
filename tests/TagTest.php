@@ -6,6 +6,19 @@ use Proner\PhpPimaco\Tag;
 
 class TagTest extends \PHPUnit_Framework_TestCase
 {
+    function test_border()
+    {
+        $template = "teste.json";
+        $path = dirname(__DIR__) . "/tests/templates/";
+
+        $tag = new Tag('teste');
+        $tag->setBorder(0.1);
+        $tag->loadConfig($template, $path);
+
+        $render = "<div style='width: 10mm;height: 10mm;border: 0.1mm solid black;'><div style='padding: 0mm;'><span style='margin: 0mm;padding: 0mm;'>teste</span></div></div>";
+        $this->assertEquals($render,$tag->render());
+    }
+
     function test_render()
     {
         $template = "teste.json";

@@ -30,7 +30,11 @@ class Tag
 
         $this->width = $std->tag->width;
         $this->height = $std->tag->height;
-        $this->border = $std->tag->border;
+
+        if( empty($this->border) ){
+            $this->border = $std->tag->border;
+        }
+
         $this->ln = $std->tag->ln;
         $this->align = $std->tag->align;
     }
@@ -44,6 +48,12 @@ class Tag
     public function setPadding($padding)
     {
         $this->padding = $padding;
+        return $this;
+    }
+
+    public function setBorder($border)
+    {
+        $this->border = $border;
         return $this;
     }
 

@@ -1,6 +1,8 @@
 <?php
 namespace Proner\PhpPimaco;
 
+use Proner\PhpPimaco\Tags\P;
+
 class Tag
 {
     private $content;

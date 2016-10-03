@@ -1,8 +1,7 @@
 <?php
 namespace PhpPimacoTest;
 
-
-use Proner\PhpPimaco\P;
+use Proner\PhpPimaco\Tags\P;
 
 class PTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,7 +1,7 @@
 <?php
 namespace PhpPimacoTest;
 
-use Proner\PhpPimaco\P;
+use Proner\PhpPimaco\Tags\P;
 use Proner\PhpPimaco\Tag;
 
 class TagTest extends \PHPUnit_Framework_TestCase

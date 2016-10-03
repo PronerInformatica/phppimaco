@@ -1,5 +1,5 @@
 <?php
-namespace Proner\PhpPimaco;
+namespace Proner\PhpPimaco\Tags;
 
 class P
 {

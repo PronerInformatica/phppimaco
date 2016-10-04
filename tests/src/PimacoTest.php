@@ -150,4 +150,19 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div>";
         $this->assertEquals($render,$pimaco->render());
     }
+
+    function test_render_with_barcode()
+    {
+        $template = "teste";
+        $path = dirname(__DIR__) . "/templates/";
+
+        $tag = new Tag('teste');
+        $tag->barcode('123456789');
+
+        $pimaco = new Pimaco($template,$path);
+        $pimaco->addTag($tag);
+
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span><img style='float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMoAAAAeAQMAAABXBBPSAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAC1JREFUKJFj+Mx/2Maeh+eDPbPNB57D9ufPH7YxsD/zwd74AMOo1KjUqBRMCgBS6GBUqpqy9wAAAABJRU5ErkJggg=='></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div>";
+        $this->assertEquals($render,$pimaco->render());
+    }
 }

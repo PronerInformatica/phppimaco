@@ -80,7 +80,7 @@ class Pimaco
         $new = $this->tags->count() + 1;
         $cols = $this->columns;
         $rows = ceil($this->tags->count()/$this->columns) + 1;
-        
+
         if( $new%$cols==0 ){
             $sideCol = "right";
             $margin = false;

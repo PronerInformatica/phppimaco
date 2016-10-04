@@ -1,6 +1,7 @@
 <?php
 namespace Proner\PhpPimaco;
 
+use Proner\PhpPimaco\Tags\Barcode;
 use Proner\PhpPimaco\Tags\P;
 
 class Tag
@@ -16,11 +17,11 @@ class Tag
 
     function __construct($content = null)
     {
-        $this->p = new \ArrayObject();
+        $this->tags = new \ArrayObject();
 
         if( $content !== null ){
             $p = new P($content);
-            $this->p->append($p);
+            $this->tags->append($p);
         }
     }
 
@@ -69,20 +70,33 @@ class Tag
 
     public function addP(P $p)
     {
-        $this->p->append($p);
+        $this->tags->append($p);
         return $p;
     }
 
     public function p($content)
     {
         $p = new P($content);
-        $this->p->append($p);
+        $this->tags->append($p);
         return $p;
     }
 
-    private function getP()
+    public function addBarcode(Barcode $barcode)
     {
-        return $this->p->getArrayCopy();
+        $this->tags->append($barcode);
+        return $barcode;
+    }
+
+    public function barcode($content, $typeCode = null)
+    {
+        $barcode = new Barcode($content);
+        $this->tags->append($barcode);
+        return $barcode;
+    }
+
+    private function getTags()
+    {
+        return $this->tags->getArrayCopy();
     }
 
     public function render($side = null,$margin = false)
@@ -108,9 +122,9 @@ class Tag
             $style[] = "font-size: {$this->size}mm";
         }
 
-        $ps = $this->getP();
-        foreach($ps as $p){
-            $this->content .= $p->render();
+        $tags = $this->getTags();
+        foreach($tags as $tag){
+            $this->content .= $tag->render();
         }
 
         if( !empty($style) ){

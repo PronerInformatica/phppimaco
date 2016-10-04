@@ -7,26 +7,54 @@ use Proner\PhpPimaco\Tag;
 
 class PimacoTest extends \PHPUnit_Framework_TestCase
 {
-    function test_render()
+    function test_render_with_2_coluns()
     {
         $template = "teste";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag('teste');
         $tag2 = new Tag('teste2');
+        $tag3 = new Tag('teste3');
+        $tag4 = new Tag('teste4');
 
         $pimaco = new Pimaco($template,$path);
         $pimaco->addTag($tag);
         $pimaco->addTag($tag2);
+        $pimaco->addTag($tag3);
+        $pimaco->addTag($tag4);
 
-        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste2</span></div></div>";
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste2</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste3</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste4</span></div></div>";
         $this->assertEquals($render,$pimaco->render());
     }
 
-    function test_render_with_blank()
+    function test_render_with_3_coluns()
+    {
+        $template = "teste2";
+        $path = dirname(__DIR__) . "/templates/";
+
+        $tag = new Tag('teste');
+        $tag2 = new Tag('teste2');
+        $tag3 = new Tag('teste3');
+        $tag4 = new Tag('teste4');
+        $tag5 = new Tag('teste5');
+        $tag6 = new Tag('teste6');
+
+        $pimaco = new Pimaco($template,$path);
+        $pimaco->addTag($tag);
+        $pimaco->addTag($tag2);
+        $pimaco->addTag($tag3);
+        $pimaco->addTag($tag4);
+        $pimaco->addTag($tag5);
+        $pimaco->addTag($tag6);
+
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste2</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste3</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste4</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste5</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste6</span></div></div>";
+        $this->assertEquals($render,$pimaco->render());
+    }
+
+    function test_render_tag_blank_with_2_coluns()
     {
         $template = "teste";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag('teste');
 
@@ -37,10 +65,24 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($render,$pimaco->render());
     }
 
-    function test_jump()
+    function test_render_tag_blank_with_3_coluns()
+    {
+        $template = "teste2";
+        $path = dirname(__DIR__) . "/templates/";
+
+        $tag = new Tag('teste');
+
+        $pimaco = new Pimaco($template,$path);
+        $pimaco->addTag($tag);
+
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div>";
+        $this->assertEquals($render,$pimaco->render());
+    }
+
+    function test_jump_with_2_coluns()
     {
         $template = "teste";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag('teste');
 
@@ -60,6 +102,32 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $pimaco->addTag($tag);
 
         $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div>";
+        $this->assertEquals($render,$pimaco->render());
+    }
+
+    function test_jump_with_3_coluns()
+    {
+        $template = "teste2";
+        $path = dirname(__DIR__) . "/templates/";
+
+        $tag = new Tag('teste');
+
+        $pimaco = new Pimaco($template,$path);
+        $pimaco->jump(0);
+        $pimaco->addTag($tag);
+
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div>";
+        $this->assertEquals($render,$pimaco->render());
+        unset($tag);
+        unset($pimaco);
+
+        $tag = new Tag('teste');
+
+        $pimaco = new Pimaco($template,$path);
+        $pimaco->jump(3);
+        $pimaco->addTag($tag);
+
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span></span></div></div>";
         $this->assertEquals($render,$pimaco->render());
     }
 }

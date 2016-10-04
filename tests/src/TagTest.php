@@ -9,7 +9,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
     function test_border()
     {
         $template = "teste.json";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag('teste');
         $tag->loadConfig($template, $path);
@@ -25,7 +25,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
     function test_padding()
     {
         $template = "teste.json";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag('teste');
         $tag->loadConfig($template, $path);
@@ -41,7 +41,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
     function test_render()
     {
         $template = "teste.json";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag('teste');
         $tag->loadConfig($template, $path);
@@ -53,7 +53,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
     function test_render_with_p()
     {
         $template = "teste.json";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag();
         $tag->loadConfig($template, $path);
@@ -74,7 +74,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
     function test_render_add_p()
     {
         $template = "teste.json";
-        $path = dirname(__DIR__) . "/tests/templates/";
+        $path = dirname(__DIR__) . "/templates/";
 
         $tag = new Tag();
         $tag->loadConfig($template, $path);

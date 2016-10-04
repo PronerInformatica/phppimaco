@@ -24,6 +24,10 @@ ou adicione isso ao require do seu composer.json
 * 6182
 * 6282
 * 62582
+* A4056
+* A4256
+* A4356
+* A4056R
 
 ## Templates Testados
 * 6182

@@ -10,10 +10,9 @@ class Tag
     private $width;
     private $height;
     private $border;
-    private $ln;
     private $size;
     private $padding;
-    private $align;
+    private $marginLeft;
 
     function __construct($content = null)
     {
@@ -32,9 +31,14 @@ class Tag
 
         $this->width = $std->tag->width;
         $this->height = $std->tag->height;
+        $this->marginLeft = $std->tag->{'margin-left'};
 
         if( empty($this->border) ){
             $this->border = $std->tag->border;
+        }
+
+        if( empty($this->padding) ){
+            $this->padding = 0;
         }
 
         if( empty($this->padding) ){
@@ -81,12 +85,15 @@ class Tag
         return $this->p->getArrayCopy();
     }
 
-    public function render($side = null)
+    public function render($side = null,$margin = false)
     {
         $this->content = "";
 
         if( !empty($side) ){
             $style[] = "float: {$side}";
+        }
+        if( $margin ){
+            $style[] = "margin-left: {$this->marginLeft}mm";
         }
         if( !empty($this->width) ){
             $style[] = "width: {$this->width}mm";

@@ -49,8 +49,6 @@ class Pimaco
             $this->marginTop,
             $this->marginBottom
         );
-
-//        $this->pdf->SetColumns($this->columns,'L',1);
     }
 
     private function loadConfig()
@@ -79,12 +77,27 @@ class Pimaco
     {
         $tag->loadConfig($this->file_template, $this->path_template);
 
-        if( $this->tags->count()%$this->columns==0 ){
-            $sideCol = "left";
-        }else{
-            $sideCol = "right";
+        $new = $this->tags->count() + 1;
+        $cols = $this->columns;
+
+        for( $i = 1; $i <= $this->tags->count() + 1; $i++ ){
+            $col_left[] = ($i * $cols - ($cols - 1));
         }
-        return $this->tags->append($tag->render($sideCol));
+
+        if( $new%$cols==0 ){
+            $sideCol = "right";
+            $margin = false;
+
+        }elseif (in_array($new, $col_left, true)) {
+            $sideCol = "left";
+            $margin = false;
+
+        }else{
+            $sideCol = "left";
+            $margin = true;
+        }
+
+        return $this->tags->append($tag->render($sideCol,$margin));
     }
 
     private function addTagBlank()
@@ -118,6 +131,7 @@ class Pimaco
         $tags = $this->getTags();
 
         $col = 0;
+        $render = "";
         for($row = 1; $row <= $rows; $row++){
             for($i = 1; $i <= $this->columns && $this->tags->count() > 0; $i++){
                 $render .= $tags[$col];

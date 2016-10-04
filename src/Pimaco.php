@@ -79,16 +79,13 @@ class Pimaco
 
         $new = $this->tags->count() + 1;
         $cols = $this->columns;
-
-        for( $i = 1; $i <= $this->tags->count() + 1; $i++ ){
-            $col_left[] = ($i * $cols - ($cols - 1));
-        }
-
+        $rows = ceil($this->tags->count()/$this->columns) + 1;
+        
         if( $new%$cols==0 ){
             $sideCol = "right";
             $margin = false;
 
-        }elseif (in_array($new, $col_left, true)) {
+        }elseif( $new == ($rows * $cols - ($cols - 1)) ){
             $sideCol = "left";
             $margin = false;
 

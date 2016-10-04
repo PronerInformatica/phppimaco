@@ -16,14 +16,22 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $tag2 = new Tag('teste2');
         $tag3 = new Tag('teste3');
         $tag4 = new Tag('teste4');
+        $tag5 = new Tag('teste5');
+        $tag6 = new Tag('teste6');
+        $tag7 = new Tag('teste7');
+        $tag8 = new Tag('teste8');
 
         $pimaco = new Pimaco($template,$path);
         $pimaco->addTag($tag);
         $pimaco->addTag($tag2);
         $pimaco->addTag($tag3);
         $pimaco->addTag($tag4);
+        $pimaco->addTag($tag5);
+        $pimaco->addTag($tag6);
+        $pimaco->addTag($tag7);
+        $pimaco->addTag($tag8);
 
-        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste2</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste3</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste4</span></div></div>";
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste2</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste3</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste4</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste5</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste6</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste7</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste8</span></div></div>";
         $this->assertEquals($render,$pimaco->render());
     }
 
@@ -38,6 +46,12 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $tag4 = new Tag('teste4');
         $tag5 = new Tag('teste5');
         $tag6 = new Tag('teste6');
+        $tag7 = new Tag('teste7');
+        $tag8 = new Tag('teste8');
+        $tag9 = new Tag('teste9');
+        $tag10 = new Tag('teste10');
+        $tag11 = new Tag('teste11');
+        $tag12 = new Tag('teste12');
 
         $pimaco = new Pimaco($template,$path);
         $pimaco->addTag($tag);
@@ -46,8 +60,14 @@ class PimacoTest extends \PHPUnit_Framework_TestCase
         $pimaco->addTag($tag4);
         $pimaco->addTag($tag5);
         $pimaco->addTag($tag6);
+        $pimaco->addTag($tag7);
+        $pimaco->addTag($tag8);
+        $pimaco->addTag($tag9);
+        $pimaco->addTag($tag10);
+        $pimaco->addTag($tag11);
+        $pimaco->addTag($tag12);
 
-        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste2</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste3</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste4</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste5</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste6</span></div></div>";
+        $render = "<div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste2</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste3</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste4</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste5</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste6</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste7</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste8</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste9</span></div></div><div style='float: left;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste10</span></div></div><div style='float: left;margin-left: 4mm;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste11</span></div></div><div style='float: right;width: 10mm;height: 10mm;'><div style='padding: 0mm;'><span>teste12</span></div></div>";
         $this->assertEquals($render,$pimaco->render());
     }
 

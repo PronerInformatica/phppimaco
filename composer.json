@@ -1,6 +1,7 @@
 {
     "name": "proner/phppimaco",
     "description": "Lib para geração de Etiquetas PIMACO",
+    "keywords": ["PIMACO", "etiquetas","tags","hang tags"],
     "authors": [
         {
             "name": "Diogo Bemfica",

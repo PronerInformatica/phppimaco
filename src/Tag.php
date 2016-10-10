@@ -89,7 +89,7 @@ class Tag
 
     public function barcode($content, $typeCode = null)
     {
-        $barcode = new Barcode($content);
+        $barcode = new Barcode($content,$typeCode);
         $this->tags->append($barcode);
         return $barcode;
     }

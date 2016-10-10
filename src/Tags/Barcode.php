@@ -17,7 +17,7 @@ class Barcode
         $this->content = $content;
         $this->typeCode = 'TYPE_CODE_128';
 
-        if( $typeCode != null ){
+        if( $typeCode !== null ){
             $this->typeCode = $typeCode;
         }
 

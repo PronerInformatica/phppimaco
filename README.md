@@ -20,18 +20,27 @@ ou adicione isso ao require do seu composer.json
 ```
 
 ## Templates Implementados
-* 6082
-* 6182
-* 6282
-* 62582
+* 3080
+* 3180
 * A4056
+* A4056R
 * A4256
 * A4356
-* A4056R
-* 3080
+* 5580A
+* 5580M
+* 5580V
+* 6080
+* 6082
+* 6180
+* 6280
+* 6282
+* 62582
+
 
 ## Templates Testados
+* 3080
 * 6182
+
 
 ## Documentação
 

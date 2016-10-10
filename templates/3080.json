@@ -2,7 +2,7 @@
   "page": {
     "font-size" : "10",
     "orientation": "P",
-    "columns": "2",
+    "columns": "3",
     "unit": "mm",
     "size": {
       "0": "215.9",

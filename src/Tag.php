@@ -2,6 +2,7 @@
 namespace Proner\PhpPimaco;
 
 use Proner\PhpPimaco\Tags\Barcode;
+use Proner\PhpPimaco\Tags\Img;
 use Proner\PhpPimaco\Tags\P;
 
 class Tag
@@ -92,6 +93,13 @@ class Tag
         $barcode = new Barcode($content,$typeCode);
         $this->tags->append($barcode);
         return $barcode;
+    }
+
+    public function img($content)
+    {
+        $img = new Img($content);
+        $this->tags->append($img);
+        return $img;
     }
 
     private function getTags()

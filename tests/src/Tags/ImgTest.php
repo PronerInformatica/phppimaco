@@ -1,0 +1,33 @@
+<?php
+namespace PhpPimacoTest;
+
+use Proner\PhpPimaco\Tags\Img;
+
+class ImgTest extends \PHPUnit_Framework_TestCase
+{
+    function test_render()
+    {
+        $img = new Img('tests/teste.png');
+
+        $render = "<img style='float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAmCAYAAAB0xJ2ZAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AoLEjsb7lR/SAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAACW0lEQVRo3u2Zv0tyURjHv/fllbo2JAki2qgUuBbiILgIgZs6ufgXBNFQW0R7a0NCU1NzQkgQIgg6tTZEUy5CIMWtoPq8U5d+vL56oy68eB44y32e83zv/ZznPHDOtQA0wfZLE24GgAFgABgABoABYAAYAAbApNrvcYIsy/KU9LuOF6+6P3lcMRXw1RX1Y3X+2x5weHioXC6nUCikqakpJRIJbWxsaDAYuDH39/fa2trS4uKiZmZmNDs7q3w+r+Pj40/bzrIsd3jVGWd1v2SS+Dj95eWFSqXi+j6OVCrFYDAAoFqtDo17m/9vPi86I7/jOwHUajUkMT8/z9HREf1+H8dxaLfbLC8vI4nNzU0AQqEQktjd3eXm5obHx0c6nQ7FYvGfGl51fAWQTqeRRKvV+hR/eXmJJJLJJADJZBJJFAoFtre3aTabPD8/j9TwquMrgGAwOLQsX0cgEADg9PSUSCTyzpdIJDg/Px8JwIuOrwBs2x75Ym/nOI5DvV5nbW2NWCyGJLLZ7EgAXnV8A7C0tIQkut2u53y9Xg9JBINB95llWUji6enp23R+FMDBwQGSiEaj1Go1rq6ucByHh4cHLi4u2N/fJ5PJALCyskKj0eDu7o7b21v29vaQxPT0tJsvHA4jiZOTk3f9wYuOrwAAVldXxyrNYb5KpeLmKpfLQ8t6XB3fAbw2uHK5TDweJxAIYNs2qVSK9fV1t8mdnZ1RKpUIh8PYts3CwgI7Ozs4juPmub6+plQqMTc3524HrzqjzDI/Rsx9gAFgABgABoABYAAYAAaAAWAATKL9AZmQ1w5fH521AAAAAElFTkSuQmCC'>";
+        $this->assertEquals($render,$img->render());
+    }
+
+    function test_render_width()
+    {
+        $img = new Img('tests/teste.png');
+        $img->setWidth(10);
+
+        $render = "<img style='width: 10mm;float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAmCAYAAAB0xJ2ZAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AoLEjsb7lR/SAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAACW0lEQVRo3u2Zv0tyURjHv/fllbo2JAki2qgUuBbiILgIgZs6ufgXBNFQW0R7a0NCU1NzQkgQIgg6tTZEUy5CIMWtoPq8U5d+vL56oy68eB44y32e83zv/ZznPHDOtQA0wfZLE24GgAFgABgABoABYAAYAAbApNrvcYIsy/KU9LuOF6+6P3lcMRXw1RX1Y3X+2x5weHioXC6nUCikqakpJRIJbWxsaDAYuDH39/fa2trS4uKiZmZmNDs7q3w+r+Pj40/bzrIsd3jVGWd1v2SS+Dj95eWFSqXi+j6OVCrFYDAAoFqtDo17m/9vPi86I7/jOwHUajUkMT8/z9HREf1+H8dxaLfbLC8vI4nNzU0AQqEQktjd3eXm5obHx0c6nQ7FYvGfGl51fAWQTqeRRKvV+hR/eXmJJJLJJADJZBJJFAoFtre3aTabPD8/j9TwquMrgGAwOLQsX0cgEADg9PSUSCTyzpdIJDg/Px8JwIuOrwBs2x75Ym/nOI5DvV5nbW2NWCyGJLLZ7EgAXnV8A7C0tIQkut2u53y9Xg9JBINB95llWUji6enp23R+FMDBwQGSiEaj1Go1rq6ucByHh4cHLi4u2N/fJ5PJALCyskKj0eDu7o7b21v29vaQxPT0tJsvHA4jiZOTk3f9wYuOrwAAVldXxyrNYb5KpeLmKpfLQ8t6XB3fAbw2uHK5TDweJxAIYNs2qVSK9fV1t8mdnZ1RKpUIh8PYts3CwgI7Ozs4juPmub6+plQqMTc3524HrzqjzDI/Rsx9gAFgABgABoABYAAYAAaAAWAATKL9AZmQ1w5fH521AAAAAElFTkSuQmCC'>";
+        $this->assertEquals($render,$img->render());
+    }
+
+    function test_render_rotate()
+    {
+        $img = new Img('tests/teste.png');
+        $img->rotate(90);
+
+        $render = "<img style='float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAmCAYAAAB0xJ2ZAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AoLEjsb7lR/SAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAACW0lEQVRo3u2Zv0tyURjHv/fllbo2JAki2qgUuBbiILgIgZs6ufgXBNFQW0R7a0NCU1NzQkgQIgg6tTZEUy5CIMWtoPq8U5d+vL56oy68eB44y32e83zv/ZznPHDOtQA0wfZLE24GgAFgABgABoABYAAYAAbApNrvcYIsy/KU9LuOF6+6P3lcMRXw1RX1Y3X+2x5weHioXC6nUCikqakpJRIJbWxsaDAYuDH39/fa2trS4uKiZmZmNDs7q3w+r+Pj40/bzrIsd3jVGWd1v2SS+Dj95eWFSqXi+j6OVCrFYDAAoFqtDo17m/9vPi86I7/jOwHUajUkMT8/z9HREf1+H8dxaLfbLC8vI4nNzU0AQqEQktjd3eXm5obHx0c6nQ7FYvGfGl51fAWQTqeRRKvV+hR/eXmJJJLJJADJZBJJFAoFtre3aTabPD8/j9TwquMrgGAwOLQsX0cgEADg9PSUSCTyzpdIJDg/Px8JwIuOrwBs2x75Ym/nOI5DvV5nbW2NWCyGJLLZ7EgAXnV8A7C0tIQkut2u53y9Xg9JBINB95llWUji6enp23R+FMDBwQGSiEaj1Go1rq6ucByHh4cHLi4u2N/fJ5PJALCyskKj0eDu7o7b21v29vaQxPT0tJsvHA4jiZOTk3f9wYuOrwAAVldXxyrNYb5KpeLmKpfLQ8t6XB3fAbw2uHK5TDweJxAIYNs2qVSK9fV1t8mdnZ1RKpUIh8PYts3CwgI7Ozs4juPmub6+plQqMTc3524HrzqjzDI/Rsx9gAFgABgABoABYAAYAAaAAWAATKL9AZmQ1w5fH521AAAAAElFTkSuQmCC' rotate='90'>";
+        $this->assertEquals($render,$img->render());
+    }
+}

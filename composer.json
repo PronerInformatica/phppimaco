@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "php": ">=5.6",
         "mpdf/mpdf": "^6.1",
         "picqer/php-barcode-generator": "^0.2.0"
     },

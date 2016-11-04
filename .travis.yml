@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+  - nightly
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+before_script:
+  - composer install --dev -o
+
+script:
+  - ./vendor/bin/phpunit --coverage-clover tmp/clover.xml
+
+after_success:
+  - ./vendor/bin/test-reporter --coverage-report tmp/clover.xml

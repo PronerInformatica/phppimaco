@@ -4,6 +4,7 @@ namespace Proner\PhpPimaco;
 use Proner\PhpPimaco\Tags\Barcode;
 use Proner\PhpPimaco\Tags\Img;
 use Proner\PhpPimaco\Tags\P;
+use Proner\PhpPimaco\Tags\QrCode;
 
 class Tag
 {
@@ -93,6 +94,13 @@ class Tag
         $barcode = new Barcode($content,$typeCode);
         $this->tags->append($barcode);
         return $barcode;
+    }
+
+    public function qrcode($content)
+    {
+        $qrcode = new QrCode($content);
+        $this->tags->append($qrcode);
+        return $qrcode;
     }
 
     public function img($content)

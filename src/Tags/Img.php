@@ -22,6 +22,18 @@ class Img
         $this->align = 'left';
     }
 
+    public function setWidth($width)
+    {
+        $this->width = $width;
+        return $this;
+    }
+
+    public function setHeight($height)
+    {
+        $this->height = $height;
+        return $this;
+    }
+
     public function setMargin($margin)
     {
         if( is_array($margin) ){
@@ -36,18 +48,6 @@ class Img
     public function setAlign($align)
     {
         $this->align = $align;
-        return $this;
-    }
-
-    public function setWidth($width)
-    {
-        $this->width = $width;
-        return $this;
-    }
-
-    public function setHeight($height)
-    {
-        $this->height = $height;
         return $this;
     }
 

@@ -26,6 +26,40 @@ ou adicione isso ao require do seu composer.json
 }
 ```
 
+## Primeira impressão
+Depois fazer a instalação corretamente você deve seguir os exemplo a baixo para criar as suas etiquetas
+```php
+<?php
+require_once "../vendor/autoload.php";
+
+use Proner\PhpPimaco\Tag;
+$tag = new Tag();
+$tag->p("TAG 1");
+```
+Com a etiqueta criada, você deve estanciar o objeto Pimaco passando o código da etiqueta e adicioná-la e no objeto
+```php
+<?php
+use Proner\PhpPimaco\Pimaco;
+$pimaco = new Pimaco('6182');
+$pimaco->addTag($tag);
+$pimaco->output();
+```
+
+## Exemplo
+```php
+<?php
+use Proner\PhpPimaco\Tag;
+use Proner\PhpPimaco\Pimaco;
+
+$tag = new Tag();
+$tag->p("TAG 1");
+
+$pimaco = new Pimaco('6182');
+$pimaco->addTag($tag);
+$pimaco->output();
+```
+
+
 ## Templates Implementados
 * 3080
 * 3180

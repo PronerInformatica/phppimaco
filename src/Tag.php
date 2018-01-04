@@ -137,6 +137,9 @@ class Tag
         if( !empty($this->size) ){
             $style[] = "font-size: {$this->size}mm";
         }
+        if( !empty($this->align) ){
+            $style[] = "text-align: {$this->align}";
+        }
 
         $tags = $this->getTags();
         foreach($tags as $tag){

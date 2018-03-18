@@ -8,10 +8,10 @@
       "0": "210",
       "1": "297"
     },
-    "margin-top": "1.35",
-    "margin-left": "0.8",
-    "margin-right": "0.8",
-    "margin-bottom": "1.35",
+    "margin-top": "15",
+    "margin-left": "7.2",
+    "margin-right": "7.2",
+    "margin-bottom": "0.0",
     "margin-header": "0.0",
     "margin-footer": "0.0"
   },
@@ -19,6 +19,6 @@
     "width" : "26",
     "height" : "15",
     "border" : "0",
-    "margin-left" : "2.8"
+    "margin-left" : "2.2"
   }
 }

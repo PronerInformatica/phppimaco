@@ -2,7 +2,7 @@
 
 O PHP TAGS é um pacote para geração de etiquetas usando a biblioteca <a href="https://github.com/mpdf/mpdf" target="_blank">MPDF</a> para auxiliar a montagem de PDFs com as tuas etiquetas devidamente formatadas e prontas para impressão.
 
-Esse projeto é uma derivação (fork) PronerInformatica/phppimaco
+Esse projeto é uma derivação (fork) PronerInformatica/phppimaco que implementou quase todos os Layouts das etiquetas do tipo PIMACO (BIC)
 
 ## Dependência
 
@@ -66,12 +66,12 @@ ETIQUETAS PADRÃO BIC-PRIMACO (PM)
 
 Muito comum em papelarias, são folhas de papel A4 ou Carta com várias etiquetas pre cortadas para impressão em impressoras jato de tinta ou Laser.
 
-* 3080
+* 3080 - 30 etiquetas por folha de papel Carta
 * 3180
 * A4056
 * A4056R
 * A4256
-* A4356
+* A4356 - 33 etiquetas por folha de papel A4
 * 5580A
 * 5580M
 * 5580V
@@ -80,7 +80,7 @@ Muito comum em papelarias, são folhas de papel A4 ou Carta com várias etiqueta
 * 6180
 * 6280
 * 6282
-* 62582
+* 62582 - 14 etiquetas por folha de papel Carta
 * 3080
 * 6182
 
@@ -90,4 +90,4 @@ Muitas empresas tem em seus ativos impressoras de etiqueta especificamente para 
 
 Algumas dessas impressoras disponhe de drive windows ou linux para impressão direta (driver spooler) sendo capaz de imprimir por exemplo conteúdo de um PDF. Atenço: Nem todas impressoras de etiquetas tem drivers de impressão direta pelo spooler de impresso do Windows, nesses casos não irá funcionar! Por favor reportem modelos testados!
 
-
+* Roll 80x60mm - Rolo 2 colunas cada tag 40x60 com divisor de preço

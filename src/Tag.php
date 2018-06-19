@@ -44,10 +44,6 @@ class Tag
             $this->padding = 0;
         }
 
-        if( empty($this->padding) ){
-            $this->padding = 0;
-        }
-
         $this->ln = $std->tag->ln;
         $this->align = $std->tag->align;
     }

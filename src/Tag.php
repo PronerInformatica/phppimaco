@@ -48,8 +48,13 @@ class Tag
             $this->padding = 0;
         }
 
-        $this->ln = $std->tag->ln;
-        $this->align = $std->tag->align;
+        if(isset($std->tag->ln)){
+            $this->ln = $std->tag->ln;
+        }
+
+        if(isset($std->tag->ln)){
+            $this->align = $std->tag->align;
+        }
     }
 
     public function setSize($size)

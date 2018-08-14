@@ -102,7 +102,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $tag->barcode('123456789');
         $tag->p('teste');
 
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><img style='float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMoAAAAeAQMAAABXBBPSAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAC1JREFUKJFj+Mx/2Maeh+eDPbPNB57D9ufPH7YxsD/zwd74AMOo1KjUqBRMCgBS6GBUqpqy9wAAAABJRU5ErkJggg=='><span>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><img style='float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMoAAAAeAQMAAABXBBPSAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAC1JREFUKJFj+Mx/2Maeh+eDPbPNB57D9ufPH7YxsD/zwd74AMOo1KjUqBRMCgBS6GBUqpqy9wAAAABJRU5ErkJggg=='><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
     }
 
@@ -119,7 +119,7 @@ class TagTest extends \PHPUnit_Framework_TestCase
         $tag->addBarcode($barcode);
         $tag->p('teste');
 
-        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><img style='float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMoAAAAeAQMAAABXBBPSAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAC1JREFUKJFj+Mx/2Maeh+eDPbPNB57D9ufPH7YxsD/zwd74AMOo1KjUqBRMCgBS6GBUqpqy9wAAAABJRU5ErkJggg=='><span>teste</span></div></div>";
+        $render = "<div style='width: 10mm;height: 10mm;'><div style='padding: 0mm;'><img style='float: left' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMoAAAAeAQMAAABXBBPSAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAC1JREFUKJFj+Mx/2Maeh+eDPbPNB57D9ufPH7YxsD/zwd74AMOo1KjUqBRMCgBS6GBUqpqy9wAAAABJRU5ErkJggg=='><span>teste</span></div></div>";
         $this->assertEquals($render,$tag->render());
     }
 

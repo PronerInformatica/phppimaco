@@ -2,7 +2,6 @@
 
 namespace Proner\PhpPimaco;
 
-use DoctrineTest\InstantiatorTestAsset\ArrayObjectAsset;
 use mPDF;
 
 class Pimaco

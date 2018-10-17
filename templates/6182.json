@@ -1,6 +1,6 @@
 {
     "page": {
-        "font-size": "10",
+        "font-size" : "10",
         "orientation": "P",
         "columns": "2",
         "unit": "mm",
@@ -8,17 +8,17 @@
             "215.9",
             "279.4"
         ],
-        "margin-top": "2.12",
-        "margin-left": "0.40",
-        "margin-right": "0.40",
-        "margin-bottom": "2.12",
+        "margin-top": "21.3",
+        "margin-left": "4.0",
+        "margin-right": "4.0",
+        "margin-bottom": "21.2",
         "margin-header": "0.0",
         "margin-footer": "0.0"
     },
     "tag": {
-        "width": "10.16",
-        "height": "3.39",
-        "border": "0",
-        "margin-left": 3.5900000000000003
+        "width" : "101.6",
+        "height" : "33.9",
+        "border" : "0",
+        "margin-left" : "0"
     }
 }

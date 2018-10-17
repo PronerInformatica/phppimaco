@@ -4,10 +4,10 @@
     "orientation": "P",
     "columns": "3",
     "unit": "mm",
-    "size": {
-      "0": "215.9",
-      "1": "279.4"
-    },
+    "size": [
+      "215.9",
+      "279.4"
+    ],
     "margin-top": "8.8",
     "margin-left": "7.2",
     "margin-right": "7.2",

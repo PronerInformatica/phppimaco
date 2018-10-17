@@ -1,24 +1,24 @@
 {
-    "page": {
-        "font-size": "10",
-        "orientation": "P",
-        "columns": "3",
-        "unit": "mm",
-        "size": [
-            "215.9",
-            "279.4"
-        ],
-        "margin-top": "1.27",
-        "margin-left": "0.48",
-        "margin-right": "0.48",
-        "margin-bottom": "1.27",
-        "margin-header": "0.0",
-        "margin-footer": "0.0"
-    },
-    "tag": {
-        "width": "6.67",
-        "height": "2.54",
-        "border": "0",
-        "margin-left": 2.74
-    }
+  "page": {
+    "font-size" : "10",
+    "orientation": "P",
+    "columns": "3",
+    "unit": "mm",
+    "size": [
+      "215.9",
+      "279.4"
+    ],
+    "margin-top": "12.7",
+    "margin-left": "4.8",
+    "margin-right": "4.8",
+    "margin-bottom": "12.7",
+    "margin-header": "0.0",
+    "margin-footer": "0.0"
+  },
+  "tag": {
+    "width" : "66.7",
+    "height" : "25.4",
+    "border" : "0",
+    "margin-left" : "2.7"
+  }
 }

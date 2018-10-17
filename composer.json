@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=5.6",
+        "ext-json": "*",
         "mpdf/mpdf": "^6.1",
         "picqer/php-barcode-generator": "^0.2.0",
         "endroid/qrcode": "^1.7"

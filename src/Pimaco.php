@@ -58,8 +58,8 @@ class Pimaco
         $json = file_get_contents($this->path_template . $this->file_template);
         $std = json_decode($json);
 
-        $this->width = $std->page->size->{'0'};
-        $this->height = $std->page->size->{'1'};
+        $this->width = $std->page->size[0];
+        $this->height = $std->page->size[1];
         $this->fontSize = $std->page->{'font-size'};
         $this->orientation = $std->page->orientation;
         $this->columns = $std->page->columns;

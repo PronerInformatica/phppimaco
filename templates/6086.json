@@ -8,17 +8,17 @@
             "215.9",
             "279.4"
         ],
-        "margin-top": "0.16",
-        "margin-left": "0.16",
-        "margin-right": "0.16",
-        "margin-bottom": "0.16",
+        "margin-top": "1.6",
+        "margin-left": "1.6",
+        "margin-right": "1.6",
+        "margin-bottom": "1.6",
         "margin-header": "0.0",
         "margin-footer": "0.0"
     },
     "tag": {
-        "width": "21.27",
-        "height": "13.81",
+        "width": "212.7",
+        "height": "138.1",
         "border": "0",
-        "margin-left": 14.01
+        "margin-left": "14.01"
     }
 }

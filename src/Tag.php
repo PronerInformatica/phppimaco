@@ -101,9 +101,18 @@ class Tag
         return $barcode;
     }
 
-    public function qrcode($content)
+    public function qrcode($content, $label = null, $fontSize = null)
     {
         $qrcode = new QrCode($content);
+
+        if($label){
+            $qrcode->setLabel($label);
+        }
+
+        if($fontSize){
+            $qrcode->setLabelFontSize($fontSize);
+        }
+
         $this->tags->append($qrcode);
         return $qrcode;
     }

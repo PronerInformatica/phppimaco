@@ -1,6 +1,8 @@
 <?php
 namespace Proner\PhpPimaco\Tags;
 
+use Endroid\QrCode\ErrorCorrectionLevel;
+
 class QrCode
 {
     private $size;
@@ -71,10 +73,11 @@ class QrCode
     public function render()
     {
         $qrcode = new \Endroid\QrCode\QrCode();
-        $qrcode->setErrorCorrection('high');
+        $qrcode->setErrorCorrectionLevel(ErrorCorrectionLevel::HIGH);
+        $qrcode->setEncoding('UTF-8');
         $qrcode->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
         $qrcode->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
-        $qrcode->setImageType(\Endroid\QrCode\QrCode::IMAGE_TYPE_PNG);
+        $qrcode->setWriterByName('png');
         $qrcode->setText($this->content);
 
 
@@ -112,7 +115,7 @@ class QrCode
             $style = "";
         }
 
-        return "<img ".$style." src='{$qrcode->getDataUri()}'>".$this->br;
+        return "<img ".$style." src='{$qrcode->writeDataUri()}'>".$this->br;
     }
 }
 

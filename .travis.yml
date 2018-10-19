@@ -3,17 +3,17 @@ language: php
 php:
   - 5.6
   - 7.0
-  - nightly
+  - 7.1
+  - 7.2
 
-matrix:
-  allow_failures:
-    - php: nightly
+# This triggers builds to run on the new TravisCI infrastructure.
+# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+dist: precise
+sudo: false
 
 before_script:
-  - composer install --dev -o
+  - travis_retry composer self-update
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
 script:
-  - ./vendor/bin/phpunit --coverage-clover tmp/clover.xml
-
-after_success:
-  - ./vendor/bin/test-reporter --coverage-report tmp/clover.xml
+  - vendor/bin/phpunit

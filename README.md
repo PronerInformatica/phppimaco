@@ -19,11 +19,10 @@ Para fazer instalação do PHPPimaco utilize o composer
 ```php
 composer require proner/phppimaco
 ```
-ou adicione isso ao require do seu composer.json
+
+Caso você precise usar o MPDF na versão 6 use o comando
 ```php
-"require":{
-    "proner/phppimaco": "dev-master"
-}
+composer require proner/phppimaco:"^1.2"
 ```
 
 ## Primeira impressão

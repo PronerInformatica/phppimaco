@@ -2,11 +2,10 @@
 
 namespace Proner\PhpPimaco;
 
-use mPDF;
+use Mpdf\Mpdf;
 
 class Pimaco
 {
-
     private $path_template;
     private $file_template;
     private $content;
@@ -38,16 +37,14 @@ class Pimaco
 
         $this->tags = new \ArrayObject();
 
-        $this->pdf = new mPDF(
-            'utf-8',
-            array($this->width,$this->height),
-            $this->fontSize,
-            null,
-            $this->marginLeft,
-            $this->marginRight,
-            $this->marginTop,
-            $this->marginBottom
-        );
+        $this->pdf = new Mpdf([
+            'format' => [$this->width, $this->height],
+            'default_font_size' => $this->fontSize,
+            'margin_left' => $this->marginLeft,
+            'margin_right' => $this->marginRight,
+            'margin_top' => $this->marginTop,
+            'margin_footer' => $this->marginBottom
+        ]);
     }
 
     private function loadConfig()

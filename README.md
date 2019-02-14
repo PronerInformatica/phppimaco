@@ -11,7 +11,7 @@ O PHP PIMACO é um pacote para geração de etiquetas usando a biblioteca <a hre
 
 ## Dependência
 
-- PHP 5.6 ou superior
+- PHP 7.0 ou superior
 
 ## Instalação
 

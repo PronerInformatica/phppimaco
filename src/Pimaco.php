@@ -42,7 +42,9 @@ class Pimaco
             'margin_left' => $this->marginLeft,
             'margin_right' => $this->marginRight,
             'margin_top' => $this->marginTop,
-            'margin_footer' => $this->marginBottom
+            'margin_bottom' => $this->marginBottom,
+            'margin_header' => $this->marginHeader,
+            'margin_footer' => $this->marginFooter
         ]);
     }
 

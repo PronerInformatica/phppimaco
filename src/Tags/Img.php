@@ -12,7 +12,7 @@ class Img
     private $rotate;
 
 
-    function __construct($content)
+    public function __construct($content)
     {
         $size = getimagesize($content);
         $this->type = $size['mime'];
@@ -36,9 +36,9 @@ class Img
 
     public function setMargin($margin)
     {
-        if( is_array($margin) ){
-            $margin = implode("mm ",$margin).'mm';
-        }else{
+        if (is_array($margin)) {
+            $margin = implode("mm ", $margin).'mm';
+        } else {
             $margin = $margin."mm";
         }
         $this->margin = $margin;
@@ -58,36 +58,36 @@ class Img
 
     public function render()
     {
-        if( $this->width !== null ){
+        if ($this->width !== null) {
             $styles[] = "width: {$this->width}mm";
         }
 
-        if( $this->height !== null ){
+        if ($this->height !== null) {
             $styles[] = "height: {$this->height}mm";
         }
 
-        if( $this->align == 'left' ){
+        if ($this->align == 'left') {
             $styles[] = "float: left";
-        }else{
+        } else {
             $styles[] = "float: right";
         }
 
-        if( $this->margin !== null ){
+        if ($this->margin !== null) {
             $styles[] = "margin: {$this->margin}";
         }
 
-        if( !empty($styles) ){
-            $style = "style='".implode(";",$styles)."'";
-        }else{
+        if (!empty($styles)) {
+            $style = "style='".implode(";", $styles)."'";
+        } else {
             $style = "";
         }
 
-        if( $this->rotate !== null ){
+        if ($this->rotate !== null) {
             $rotate = " rotate='{$this->rotate}'";
-        }else{
+        } else {
             $rotate = "";
         }
 
-        return "<img {$style} src='data:{$this->type};base64," . $this->content . "'$rotate>";
+        return "<img {$style} src='data:{$this->type};base64,".$this->content."'$rotate>";
     }
 }

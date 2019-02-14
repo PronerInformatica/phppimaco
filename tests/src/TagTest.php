@@ -1,11 +1,12 @@
 <?php
 namespace PhpPimacoTest;
 
+use PHPUnit\Framework\TestCase;
 use Proner\PhpPimaco\Tags\Barcode;
 use Proner\PhpPimaco\Tags\P;
 use Proner\PhpPimaco\Tag;
 
-class TagTest extends \PHPUnit_Framework_TestCase
+class TagTest extends TestCase
 {
     function test_border()
     {

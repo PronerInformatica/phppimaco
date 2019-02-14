@@ -14,7 +14,7 @@ class QrCode
     private $content;
     private $br;
 
-    function __construct($content,$typeCode = null)
+    public function __construct($content, $typeCode = null)
     {
         $this->content = $content;
         $this->labelFontSize = 12;
@@ -50,9 +50,9 @@ class QrCode
 
     public function setMargin($margin)
     {
-        if( is_array($margin) ){
-            $margin = implode("mm ",$margin).'mm';
-        }else{
+        if (is_array($margin)) {
+            $margin = implode("mm ", $margin).'mm';
+        } else {
             $margin = $margin."mm";
         }
         $this->margin = $margin;
@@ -80,46 +80,40 @@ class QrCode
         $qrcode->setWriterByName('png');
         $qrcode->setText($this->content);
 
-
-        if( $this->br === null ){
-            if( $this->align == 'left' ){
+        if ($this->br === null) {
+            if ($this->align == 'left') {
                 $styles[] = "float: left";
-            }else{
+            } else {
                 $styles[] = "float: right";
             }
         }
 
-        if( $this->margin !== null ){
+        if ($this->margin !== null) {
             $styles[] = "margin: {$this->margin}";
         }
 
-        if( !empty($this->size) ){
+        if (!empty($this->size)) {
             $qrcode->setSize($this->size);
         }
 
-        if( !empty($this->label) ){
+        if (!empty($this->label)) {
             $qrcode->setLabel($this->label);
         }
 
-        if( !empty($this->labelFontSize) ){
+        if (!empty($this->labelFontSize)) {
             $qrcode->setLabelFontSize($this->labelFontSize);
         }
 
-        if( !empty($this->padding) ){
+        if (!empty($this->padding)) {
             $qrcode->setPadding($this->padding);
         }
 
-        if( !empty($styles) ){
-            $style = "style='".implode(";",$styles)."'";
-        }else{
+        if (!empty($styles)) {
+            $style = "style='".implode(";", $styles)."'";
+        } else {
             $style = "";
         }
 
         return "<img ".$style." src='{$qrcode->writeDataUri()}'>".$this->br;
     }
 }
-
-
-
-
-

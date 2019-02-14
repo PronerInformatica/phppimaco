@@ -1,9 +1,10 @@
 <?php
 namespace PhpPimacoTest;
 
+use PHPUnit\Framework\TestCase;
 use Proner\PhpPimaco\Tags\Barcode;
 
-class BarcodeTest extends \PHPUnit_Framework_TestCase
+class BarcodeTest extends TestCase
 {
     function test_render()
     {

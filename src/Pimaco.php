@@ -1,8 +1,8 @@
 <?php
-
 namespace Proner\PhpPimaco;
 
 use Mpdf\Mpdf;
+use ArrayObject;
 
 class Pimaco
 {
@@ -25,11 +25,10 @@ class Pimaco
 
     private $tags;
 
-    function __construct($template, $path_template = null)
+    public function __construct($template, $path_template = null)
     {
-
         $this->path_template = dirname(__DIR__) . "/templates/";
-        if( !empty($path_template) ){
+        if (!empty($path_template)) {
             $this->path_template = $path_template;
         }
         $this->file_template = $template.".json";
@@ -49,7 +48,7 @@ class Pimaco
 
     private function loadConfig()
     {
-        if( !file_exists($this->path_template . $this->file_template) ){
+        if (!file_exists($this->path_template . $this->file_template)) {
             throw new \Exception("template not found");
         }
         $json = file_get_contents($this->path_template . $this->file_template);
@@ -77,20 +76,18 @@ class Pimaco
         $cols = $this->columns;
         $rows = ceil($this->tags->count()/$this->columns) + 1;
 
-        if( $new%$cols==0 ){
+        if ($new%$cols==0) {
             $sideCol = "right";
             $margin = false;
-
-        }elseif( $new == ($rows * $cols - ($cols - 1)) ){
+        } elseif ($new == ($rows * $cols - ($cols - 1))) {
             $sideCol = "left";
             $margin = false;
-
-        }else{
+        } else {
             $sideCol = "left";
             $margin = true;
         }
 
-        return $this->tags->append($tag->render($sideCol,$margin));
+        return $this->tags->append($tag->render($sideCol, $margin));
     }
 
     private function addTagBlank()
@@ -106,7 +103,7 @@ class Pimaco
 
     public function jump($jump)
     {
-        for( $i = 0; $i < $jump; $i++ ){
+        for ($i = 0; $i < $jump; $i++) {
             $this->addTagBlank();
         }
     }
@@ -117,7 +114,7 @@ class Pimaco
 
         $rows = ceil($this->tags->count()/$this->columns);
         $blank = $this->columns*$rows-$this->tags->count();
-        for( $i = 0; $i < $blank; $i++ ){
+        for ($i = 0; $i < $blank; $i++) {
             $this->addTagBlank();
         }
 
@@ -125,11 +122,11 @@ class Pimaco
 
         $col = 0;
         $render = "";
-        for($row = 1; $row <= $rows; $row++){
-            for($i = 1; $i <= $this->columns && $this->tags->count() > 0; $i++){
+        for ($row = 1; $row <= $rows; $row++) {
+            for ($i = 1; $i <= $this->columns && $this->tags->count() > 0; $i++) {
                 $render .= $tags[$col];
                 $col++;
-                if( $col > $this->tags->count() ){
+                if ($col > $this->tags->count()) {
                     break 2;
                 }
             }

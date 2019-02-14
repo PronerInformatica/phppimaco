@@ -1,9 +1,10 @@
 <?php
 namespace PhpPimacoTest;
 
+use PHPUnit\Framework\TestCase;
 use Proner\PhpPimaco\Tags\Img;
 
-class ImgTest extends \PHPUnit_Framework_TestCase
+class ImgTest extends TestCase
 {
     function test_render()
     {

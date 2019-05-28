@@ -25,7 +25,7 @@ class Pimaco
 
     private $tags;
 
-    public function __construct($template, $path_template = null)
+    public function __construct($template, $path_template = null, $tempDir = null)
     {
         $this->path_template = dirname(__DIR__) . "/templates/";
         if (!empty($path_template)) {
@@ -36,7 +36,7 @@ class Pimaco
 
         $this->tags = new \ArrayObject();
 
-        $this->pdf = new Mpdf([
+        $config = [
             'format' => [$this->width, $this->height],
             'default_font_size' => $this->fontSize,
             'margin_left' => $this->marginLeft,
@@ -45,7 +45,10 @@ class Pimaco
             'margin_bottom' => $this->marginBottom,
             'margin_header' => $this->marginHeader,
             'margin_footer' => $this->marginFooter
-        ]);
+        ];
+
+        if(!empty($tempDir)) $config['tempDir'] = $tempDir;
+        $this->pdf = new Mpdf($config);
     }
 
     private function loadConfig()

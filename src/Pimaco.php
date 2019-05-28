@@ -47,7 +47,9 @@ class Pimaco
             'margin_footer' => $this->marginFooter
         ];
 
-        if(!empty($tempDir)) $config['tempDir'] = $tempDir;
+        if (!empty($tempDir)) {
+            $config['tempDir'] = $tempDir;
+        }
         $this->pdf = new Mpdf($config);
     }
 

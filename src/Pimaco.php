@@ -141,9 +141,9 @@ class Pimaco
         return $render;
     }
 
-    public function output()
+    public function output($name = null, $dest = null)
     {
         $this->pdf->WriteHTML($this->render());
-        $this->pdf->Output();
+        $this->pdf->Output($name, $dest);
     }
 }

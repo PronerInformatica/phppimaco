@@ -12,7 +12,7 @@
     "require": {
         "php": ">=7.0",
         "ext-json": "*",
-        "mpdf/mpdf": "^7.1",
+        "mpdf/mpdf": "^8.0",
         "picqer/php-barcode-generator": "^0.2.0",
         "endroid/qr-code": "^2.5"
     },

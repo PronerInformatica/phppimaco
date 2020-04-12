@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Proner\PhpPimaco;
 
 use Proner\PhpPimaco\Tags\Barcode;
@@ -17,7 +18,11 @@ class Tag
     private $padding;
     private $marginLeft;
 
-    public function __construct($content = null)
+    /**
+     * Tag constructor.
+     * @param string|null $content
+     */
+    public function __construct(string $content = null)
     {
         $this->tags = new \ArrayObject();
 
@@ -27,7 +32,11 @@ class Tag
         }
     }
 
-    public function loadConfig($template, $path)
+    /**
+     * @param string $template
+     * @param string $path
+     */
+    public function loadConfig(string $template, string $path)
     {
         $json = file_get_contents($path . $template);
         $std = json_decode($json);
@@ -53,51 +62,86 @@ class Tag
         }
     }
 
+    /**
+     * @param $size
+     * @return $this
+     */
     public function setSize($size)
     {
         $this->size = $size;
         return $this;
     }
 
-    public function setPadding($padding)
+    /**
+     * @param float $padding
+     * @return $this
+     */
+    public function setPadding(float $padding)
     {
         $this->padding = $padding;
         return $this;
     }
 
-    public function setBorder($border)
+    /**
+     * @param float $border
+     * @return $this
+     */
+    public function setBorder(float$border)
     {
         $this->border = $border;
         return $this;
     }
 
+    /**
+     * @param P $p
+     * @return P
+     */
     public function addP(P $p)
     {
         $this->tags->append($p);
         return $p;
     }
 
-    public function p($content)
+    /**
+     * @param string $content
+     * @return P
+     */
+    public function p(string $content)
     {
         $p = new P($content);
         $this->tags->append($p);
         return $p;
     }
 
+    /**
+     * @param Barcode $barcode
+     * @return Barcode
+     */
     public function addBarcode(Barcode $barcode)
     {
         $this->tags->append($barcode);
         return $barcode;
     }
 
-    public function barcode($content, $typeCode = null)
+    /**
+     * @param string $content
+     * @param null $typeCode
+     * @return Barcode
+     */
+    public function barcode(string $content, $typeCode = null)
     {
         $barcode = new Barcode($content, $typeCode);
         $this->tags->append($barcode);
         return $barcode;
     }
 
-    public function qrcode($content, $label = null, $fontSize = null)
+    /**
+     * @param string $content
+     * @param string|null $label
+     * @param string|null $fontSize
+     * @return QrCode
+     */
+    public function qrcode(string $content, string $label = null, string $fontSize = null)
     {
         $qrcode = new QrCode($content);
 
@@ -113,6 +157,10 @@ class Tag
         return $qrcode;
     }
 
+    /**
+     * @param $content
+     * @return Img
+     */
     public function img($content)
     {
         $img = new Img($content);
@@ -120,11 +168,19 @@ class Tag
         return $img;
     }
 
+    /**
+     * @return array
+     */
     private function getTags()
     {
         return $this->tags->getArrayCopy();
     }
 
+    /**
+     * @param null $side
+     * @param bool $margin
+     * @return string
+     */
     public function render($side = null, $margin = false)
     {
         $this->content = "";

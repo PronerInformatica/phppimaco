@@ -1,6 +1,8 @@
 <?php
+declare(strict_types = 1);
 namespace Proner\PhpPimaco\Tags;
 
+use phpDocumentor\Reflection\Types\Void_;
 use \Picqer\Barcode\BarcodeGeneratorPNG;
 
 class Barcode
@@ -13,7 +15,12 @@ class Barcode
     private $align;
     private $br;
 
-    public function __construct($content, $typeCode = null)
+    /**
+     * Barcode constructor.
+     * @param string $content
+     * @param string|null $typeCode
+     */
+    public function __construct(string $content, string $typeCode = null)
     {
         $this->content = $content;
         $this->typeCode = 'TYPE_CODE_128';
@@ -28,18 +35,30 @@ class Barcode
         return $this;
     }
 
-    public function setWidth($width)
+    /**
+     * @param float $width
+     * @return $this
+     */
+    public function setWidth(float $width)
     {
         $this->width = $width;
         return $this;
     }
 
-    public function setHeight($height)
+    /**
+     * @param float $height
+     * @return $this
+     */
+    public function setHeight(float $height)
     {
         $this->height = $height;
         return $this;
     }
 
+    /**
+     * @param $margin
+     * @return $this
+     */
     public function setMargin($margin)
     {
         if (is_array($margin)) {
@@ -51,7 +70,11 @@ class Barcode
         return $this;
     }
 
-    public function setAlign($align)
+    /**
+     * @param string $align
+     * @return $this
+     */
+    public function setAlign(string $align)
     {
         $this->align = $align;
         return $this;
@@ -62,6 +85,10 @@ class Barcode
         $this->br .= "<br>";
     }
 
+    /**
+     * @return string
+     * @throws \Picqer\Barcode\Exceptions\BarcodeException
+     */
     public function render()
     {
         if ($this->br === null) {

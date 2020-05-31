@@ -1,5 +1,5 @@
 <?php
-namespace PhpPimacoTest;
+namespace Proner\PhpPimacoTest;
 
 use PHPUnit\Framework\TestCase;
 use Proner\PhpPimaco\Tags\Barcode;

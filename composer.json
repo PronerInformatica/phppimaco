@@ -9,6 +9,11 @@
             "email": "diogo.fragabemfica@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Proner\\PhpPimaco\\": "src/"
+        }
+    },
     "require": {
         "php": ">=7.0",
         "ext-json": "*",
@@ -16,9 +21,9 @@
         "picqer/php-barcode-generator": "^0.2.0",
         "endroid/qr-code": "^2.5"
     },
-    "autoload": {
+    "autoload-dev": {
         "psr-4": {
-            "Proner\\PhpPimaco\\": "src/"
+            "Proner\\PhpPimacoTest\\": "tests/"
         }
     },
     "require-dev": {

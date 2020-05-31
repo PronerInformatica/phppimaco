@@ -1,39 +1,50 @@
 <?php
+declare(strict_types = 1);
 namespace Proner\PhpPimaco\Tags;
 
 class Img
 {
     private $content;
-    private $type;
     private $margin;
-    private $align;
+    private $align = 'left';
     private $width;
     private $height;
     private $rotate;
 
 
-    public function __construct($content)
+    /**
+     * Img constructor.
+     * @param string $content
+     */
+    public function __construct(string $content)
     {
-        $size = getimagesize($content);
-        $this->type = $size['mime'];
-
-        $imagem = file_get_contents($content);
-        $this->content = base64_encode($imagem);
-        $this->align = 'left';
+        $this->content = $content;
     }
 
-    public function setWidth($width)
+    /**
+     * @param float $width
+     * @return $this
+     */
+    public function setWidth(float $width)
     {
         $this->width = $width;
         return $this;
     }
 
-    public function setHeight($height)
+    /**
+     * @param float $height
+     * @return $this
+     */
+    public function setHeight(float $height)
     {
         $this->height = $height;
         return $this;
     }
 
+    /**
+     * @param $margin
+     * @return $this
+     */
     public function setMargin($margin)
     {
         if (is_array($margin)) {
@@ -45,13 +56,20 @@ class Img
         return $this;
     }
 
-    public function setAlign($align)
+    /**
+     * @param string $align
+     * @return $this
+     */
+    public function setAlign(string $align)
     {
         $this->align = $align;
         return $this;
     }
 
-    public function rotate($rotate)
+    /**
+     * @param float $rotate
+     */
+    public function rotate(float $rotate)
     {
         $this->rotate = $rotate;
     }
@@ -88,6 +106,6 @@ class Img
             $rotate = "";
         }
 
-        return "<img {$style} src='data:{$this->type};base64,".$this->content."'$rotate>";
+        return "<img {$style} src='{$this->content}'$rotate>";
     }
 }

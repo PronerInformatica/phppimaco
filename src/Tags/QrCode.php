@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Proner\PhpPimaco\Tags;
 
 use Endroid\QrCode\ErrorCorrectionLevel;
@@ -14,7 +15,12 @@ class QrCode
     private $content;
     private $br;
 
-    public function __construct($content, $typeCode = null)
+    /**
+     * QrCode constructor.
+     * @param string $content
+     * @param string|null $typeCode
+     */
+    public function __construct(string $content, string $typeCode = null)
     {
         $this->content = $content;
         $this->labelFontSize = 12;
@@ -24,30 +30,50 @@ class QrCode
         return $this;
     }
 
-    public function setSize($size)
+    /**
+     * @param float $size
+     * @return $this
+     */
+    public function setSize(float $size)
     {
         $this->size = $size;
         return $this;
     }
 
-    public function setLabel($label)
+    /**
+     * @param string $label
+     * @return $this
+     */
+    public function setLabel(string $label)
     {
         $this->label = $label;
         return $this;
     }
 
-    public function setLabelFontSize($labelFontSize)
+    /**
+     * @param float $labelFontSize
+     * @return $this
+     */
+    public function setLabelFontSize(float $labelFontSize)
     {
         $this->labelFontSize = $labelFontSize;
         return $this;
     }
 
-    public function setPadding($padding)
+    /**
+     * @param float $padding
+     * @return $this
+     */
+    public function setPadding(float $padding)
     {
         $this->padding = $padding;
         return $this;
     }
 
+    /**
+     * @param $margin
+     * @return $this
+     */
     public function setMargin($margin)
     {
         if (is_array($margin)) {
@@ -59,7 +85,11 @@ class QrCode
         return $this;
     }
 
-    public function setAlign($align)
+    /**
+     * @param string $align
+     * @return $this
+     */
+    public function setAlign(string $align)
     {
         $this->align = $align;
         return $this;
@@ -70,6 +100,10 @@ class QrCode
         $this->br .= "<br>";
     }
 
+    /**
+     * @return string
+     * @throws \Endroid\QrCode\Exception\InvalidWriterException
+     */
     public function render()
     {
         $qrcode = new \Endroid\QrCode\QrCode();

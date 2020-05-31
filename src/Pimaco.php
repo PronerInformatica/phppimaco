@@ -1,8 +1,8 @@
 <?php
+declare(strict_types = 1);
 namespace Proner\PhpPimaco;
 
 use Mpdf\Mpdf;
-use ArrayObject;
 
 class Pimaco
 {
@@ -25,7 +25,14 @@ class Pimaco
 
     private $tags;
 
-    public function __construct($template, $path_template = null, $tempDir = null)
+    /**
+     * Pimaco constructor.
+     * @param string $template
+     * @param string $path_template
+     * @param string $tempDir
+     * @throws \Exception
+     */
+    public function __construct(string $template, string $path_template = null, string $tempDir = null)
     {
         $this->path_template = dirname(__DIR__) . "/templates/";
         if (!empty($path_template)) {
@@ -50,9 +57,17 @@ class Pimaco
         if (!empty($tempDir)) {
             $config['tempDir'] = $tempDir;
         }
-        $this->pdf = new Mpdf($config);
+
+        try {
+            $this->pdf = new Mpdf($config);
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 
+    /**
+     * @throws \Exception
+     */
     private function loadConfig()
     {
         if (!file_exists($this->path_template . $this->file_template)) {
@@ -141,8 +156,15 @@ class Pimaco
         return $render;
     }
 
-    public function output($name = null, $dest = null)
+    /**
+     * @param string|null $name
+     * @param string|null $dest
+     * @throws \Mpdf\MpdfException
+     */
+    public function output(string $name = null, string $dest = null)
     {
+//        var_dump($this->render());
+//        exit();
         $this->pdf->WriteHTML($this->render());
         $this->pdf->Output($name, $dest);
     }

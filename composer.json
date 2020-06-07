@@ -18,8 +18,8 @@
         "php": ">=7.0",
         "ext-json": "*",
         "mpdf/mpdf": "^8.0",
-        "picqer/php-barcode-generator": "^0.2.0",
-        "endroid/qr-code": "^2.5"
+        "endroid/qr-code": "^2.5",
+        "picqer/php-barcode-generator": "^0.4"
     },
     "autoload-dev": {
         "psr-4": {

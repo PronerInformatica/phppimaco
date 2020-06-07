@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b78c42d24ad93418db581f7d637543f0",
+    "content-hash": "8801c59456a9895724704ecf973f4477",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -387,20 +387,20 @@
         },
         {
             "name": "picqer/php-barcode-generator",
-            "version": "v0.2.2",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/picqer/php-barcode-generator.git",
-                "reference": "f754cbd592f3131af144dfcc6a3090fd0f6d1793"
+                "reference": "6495fecafda0455ac4d4d1883ebe8813d1653d3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/f754cbd592f3131af144dfcc6a3090fd0f6d1793",
-                "reference": "f754cbd592f3131af144dfcc6a3090fd0f6d1793",
+                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/6495fecafda0455ac4d4d1883ebe8813d1653d3e",
+                "reference": "6495fecafda0455ac4d4d1883ebe8813d1653d3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=7.2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.3"
@@ -413,7 +413,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPLv3"
+                "LGPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -427,7 +427,7 @@
                 }
             ],
             "description": "An easy to use, non-bloated, barcode generator in PHP. Creates SVG, PNG, JPG and HTML images from the most used 1D barcode standards.",
-            "homepage": "http://github.com/picqer/php-barcode-generator",
+            "homepage": "https://github.com/picqer/php-barcode-generator",
             "keywords": [
                 "CODABAR",
                 "Code11",
@@ -452,7 +452,7 @@
                 "svg",
                 "upc"
             ],
-            "time": "2017-09-28T19:23:19+00:00"
+            "time": "2019-12-31T20:06:24+00:00"
         },
         {
             "name": "psr/log",

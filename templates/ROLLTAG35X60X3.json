@@ -1,24 +1,24 @@
 {
     "page": {
         "font-size": "10",
-        "orientation": "P",
+        "orientation": "L",
         "columns": "3",
         "unit": "mm",
-        "size": [
-            "108.0",
-            "60.0"
-        ],
-        "margin-top": "0.0",
-        "margin-left": "0.0",
-        "margin-right": "0.0",
-        "margin-bottom": "0.0",
-        "margin-header": "0.0",
-        "margin-footer": "0.0"
+        "size": {
+          "0": "60",
+          "1": "105"
+        },
+        "margin-top": "0",
+        "margin-left": "0",
+        "margin-right": "0",
+        "margin-bottom": "0",
+        "margin-header": "0",
+        "margin-footer": "0"
     },
     "tag": {
-        "width": "36.0",
-        "height": "60.0",
-        "border": "0.0",
-        "margin-left": "0.0"
+        "width": "35",
+        "height": "60",
+        "border": "0",
+        "margin-left": "0"
     }
 }

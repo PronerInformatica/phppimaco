@@ -3,7 +3,7 @@
 namespace Proner\PhpPimaco;
 
 use DoctrineTest\InstantiatorTestAsset\ArrayObjectAsset;
-use mPDF;
+use Mpdf\Mpdf;
 
 class Pimaco
 {
@@ -39,16 +39,21 @@ class Pimaco
 
         $this->tags = new \ArrayObject();
 
-        $this->pdf = new mPDF(
-            'utf-8',
-            array($this->width,$this->height),
-            $this->fontSize,
-            null,
-            $this->marginLeft,
-            $this->marginRight,
-            $this->marginTop,
-            $this->marginBottom
-        );
+        
+
+        $this->pdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8',
+            'format' => [$this->width, $this->height],
+            'orientation' => 'L',
+            'default_font_size' => $this->fontSize,
+            'margin_left' => $this->marginLeft,
+            'margin_right' => $this->marginRight,
+            'margin_top' => $this->marginTop,
+            'margin_bottom' => $this->marginBottom,
+
+        ]);
+
+      
     }
 
     private function loadConfig()

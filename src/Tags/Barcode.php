@@ -84,6 +84,7 @@ class Barcode
 
         $barcode = new BarcodeGeneratorPNG();
 
+       
         switch($this->typeCode){
             case 'TYPE_CODE_39':
                 return "<img ".$style." src='data:image/png;base64," . base64_encode($barcode->getBarcode($this->content, $barcode::TYPE_CODE_39,$this->width, $this->height)) . "'>".$this->br;

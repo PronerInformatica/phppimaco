@@ -156,6 +156,7 @@ $pimaco->output();
 * A4365
 * A4367
 * A4368
+* BOOP100x40
 
 
 ## Templates Testados

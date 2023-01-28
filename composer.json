@@ -1,6 +1,6 @@
 {
-  "name": "dbemfica/phppimaco",
-  "description": "Lib para geração de Etiquetas PIMACO",
+  "name": "joaoroyosilva/phppimaco",
+  "description": "Lib fork (PronerInformatica/phppimaco) para geração de Etiquetas PIMACO",
   "keywords": [
     "PIMACO",
     "etiquetas",
